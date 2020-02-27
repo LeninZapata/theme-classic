@@ -1,0 +1,103 @@
+/*
+|.------------------------------------------------------------------
+| = 9. Forms
+|--------------------------------------------------------------------------
+*/
+// Here you use empty hook type variables that can be edited in the custom
+form {
+  background-color: var(--color-bg, hsl(0, 0%, 95%));
+  padding-top: var(--form-control-padding-y, 0.5rem);
+  padding-bottom: var(--form-control-padding-y, 0.5rem);
+  padding-left: var(--form-control-padding-x, 0.75rem);
+  padding-right: var(--form-control-padding-x, 0.75rem);
+  border-radius: var(--form-control-radius, 0.25rem);
+
+  &::-webkit-input-placeholder {
+    color: var(--color-contrast-medium, hsl(240, 1%, 48%));
+  }
+
+  &::-moz-placeholder {
+    opacity: 1;
+    color: var(--color-contrast-medium, hsl(240, 1%, 48%));
+  }
+
+  &:-ms-input-placeholder {
+    color: var(--color-contrast-medium, hsl(240, 1%, 48%));
+  }
+
+  &:-moz-placeholder {
+    color: var(--color-contrast-medium, hsl(240, 1%, 48%));
+  }
+  >p{
+    margin-bottom: var(--theme-space-sm);
+  }
+}
+
+textarea{
+  width: 100%;
+  min-height: 150px;
+}
+textarea, input[type="text"],input[type="password"],input[type="number"],
+input[type="search"]{
+  border: 1px solid var(--theme-grey-dark);
+  @include spacing( $size: var(--theme-space-x) );
+}
+input[type="submit"]{
+  display: inline-block;
+  min-width: 150px;
+  font-weight: 700;
+  color: #fff;
+  padding: 10px 15px;
+  background: var(--theme-color-primary);
+  cursor: pointer;
+  text-transform: uppercase;
+  -webkit-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+  border: 0;
+  -webkit-appearance: none;
+}
+
+legend {
+  color: var(--theme-color-contrast-higher, hsl(240, 8%, 12%));
+  line-height: 1.2;
+  font-size: var(--theme-text-md, 1.2rem);
+  margin-bottom: var(--theme-theme-space-xxs);
+}
+label {
+  display: inline-block;
+}
+
+// error message
+.form__msg-error, .form-error-msg { // .form__msg-error is fallback for older framework versions
+  color: var(--theme-color-error, hsl(349, 75%, 51%));
+  font-size: var(--theme-text-sm, 0.833rem);
+  margin-top: var(--theme-theme-space-xxs);
+
+  // hide element
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.form__msg-error--is-visible, .form-error-msg--is-visible {
+  position: relative;
+  clip-path: auto;
+}
+
+// set basic style for (native) radio and checkbox buttons
+.radio-list, .checkbox-list { // e.g., .radio-list > li > input + label
+  > * { // parent of input + label
+    position: relative;
+    display: flex;
+    align-items: baseline;
+  }
+
+  label { // radio/checkbox labels
+    line-height: var(--theme-body-line-height);
+  }
+
+  input {
+    margin-right: var(--theme-space-xxxs);
+    flex-shrink: 0;
+  }
+}

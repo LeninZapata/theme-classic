@@ -1,0 +1,104 @@
+/*
+|.------------------------------------------------------------------
+| = 13. Utils
+|--------------------------------------------------------------------------
+*/
+/* ─── Justify Content ──────── */
+.justify-start { justify-content: flex-start; }
+.justify-end { justify-content: flex-end; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+
+/* ─── Align Items ──────── */
+.items-center { align-items: center; }
+.items-start { align-items: flex-start; }
+.items-end { align-items: flex-end; }
+
+/* ─── Order ──────── */
+.order-1 { order: 1; }
+.order-2 { order: 2; }
+.order-3 { order: 3; }
+
+/* ─── Display ──────── */
+.block { display: block; }
+.inline-block { display: inline-block; }
+.inline { display: inline; }
+
+/* ─── Vertical Alignment ──────── */
+.align-baseline { vertical-align: baseline; }
+.align-top      { vertical-align: top; }
+.align-middle   { vertical-align: middle; }
+.align-bottom   { vertical-align: bottom; }
+
+/* ─── Typography ──────── */
+.truncate, .text-truncate { // truncate text if it exceeds its parent
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.text-replace { /* replace text with img */
+  overflow: hidden;
+  color: transparent;
+  text-indent: 100%;
+  white-space: nowrap;
+}
+/* font weight */
+.font-light    { font-weight: 300; }
+.font-normal   { font-weight: 400; }
+.font-medium   { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.font-bold, .text-bold { font-weight: 700; }
+
+/* font family */
+.font-primary { font-family: var(--theme-font-primary); }
+
+/* text alignment */
+.text-center { text-align: center; }
+.text-left   { text-align: left; }
+.text-right  { text-align: right; }
+
+/* ─── White Space ──────── */
+.ws-nowrap, .text-nowrap { white-space: nowrap; }
+
+/* ─── Float ──────── */
+.float-left  { float: left; }
+.float-right { float: right; }
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* ─── Media wrapper - make iframe responsive + prevent img jump when page loads ──────── */
+$media-wrapper-aspect-ratios: (
+  (4 3),
+  (1 1)
+) !default;
+
+.media-wrapper {
+  position: relative;
+  height: 0;
+  padding-bottom: 56.25%; // 16:9 aspect ratio
+
+  iframe, video, img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  video, img {
+    object-fit: cover;
+  }
+}
+
+@each $aspect-ratio in $media-wrapper-aspect-ratios {
+  $aspect-ratio-x: nth($aspect-ratio, 1);
+  $aspect-ratio-y: nth($aspect-ratio, 2);
+
+  .media-wrapper--#{$aspect-ratio-x}\:#{$aspect-ratio-y} {
+    padding-bottom: calc((#{$aspect-ratio-y} / #{$aspect-ratio-x}) * 100%);
+  }
+}

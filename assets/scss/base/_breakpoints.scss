@@ -1,0 +1,27 @@
+/*
+|--------------------------------------------------------------------------
+| = 2. Breakpoints
+|--------------------------------------------------------------------------
+*/
+$breakpoints: (
+  mobile       : 250px,
+  mobile-lands : 512px,
+  tablet       : 768px,
+  tablet-lands : 1024px,
+  desktop      : 1280px,
+  desktop-lands: 1440px
+) !default;
+
+@mixin breakpoint($breakpoint, $logic: false, $based: 16) {
+  $break: map-get($map: $breakpoints, $key: $breakpoint);
+  $cal: _return_rem($break, $based);
+  @if( $logic ) {
+    /* #{$logic} #{$break} = #{$cal} based in base #{$based}px */
+    @media #{$logic} and (min-width: $cal) { @content; }
+  } @else {
+    @media (min-width: $cal) {
+      /* min-width #{$break} = #{$cal} based in base #{$based}px */
+      @content;
+    }
+  }
+}

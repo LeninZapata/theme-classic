@@ -1,0 +1,102 @@
+/*
+|--------------------------------------------------------------------------
+| = 3. Typography
+|--------------------------------------------------------------------------
+*/
+// ─── text size ────────
+.text-xxxxxl {
+  font-size: var(--theme-text-xxxxxl, 2.488rem);
+}
+
+h1, .text-xxl {
+  font-size: var(--theme-text-xxxxl, 2.074rem);
+}
+
+h2, .text-xl {
+  font-size: var(--theme-text-xxxl, 1.728rem);
+}
+
+h3, .text-lg {
+  font-size: var(--theme-text-xxl, 1.44rem);
+}
+
+h4, .text-md {
+  font-size: var(--theme-text-xl, 1.2rem);
+}
+
+.text-base {
+  font-size: var(--theme-text-base-size);
+  line-height: var(--theme-body-line-height);
+}
+
+h5, small, .text-sm {
+  font-size: var(--theme-text-lg, 0.833rem);
+}
+
+h6, .text-xs {
+  font-size: var(--theme-text-md, 0.694rem);
+}
+h1, .text-xxl,h2, .text-xl,h3, .text-lg,h4, .text-md,.text-base,h5, small, .text-sm,h6, .text-xs{
+  line-height: var(--theme-heading-line-height);
+}
+
+// ─── Font family ────────
+h1,h2,h3,h4,h5,h6{
+  font-family: var(--theme-font-primary);
+}
+
+// ─── Responsive ────────
+@include breakpoint(mobile){
+  html{
+    font-size: 10px;
+  }
+}
+@include breakpoint(mobile-lands){
+  html{
+    font-size: 10px;
+  }
+}
+@include breakpoint(tablet){
+  html{
+    font-size: 10px;
+  }
+}
+@include breakpoint(tablet-lands){
+  html{
+    font-size: 10px;
+  }
+}
+@include breakpoint(desktop){
+  html{
+    font-size: 10px;
+  }
+}
+@include breakpoint(desktop-lands){
+  html{
+    font-size: 10px;
+  }
+}
+
+// ─── Font size ────────
+p,li,ul,ol,blockquote,i,em,code,a{
+  font-size: calc(var(--theme-text-md) + 2px);
+}
+
+// ─── inline text ────────
+a, .link {
+  text-decoration: underline;
+}
+strong {
+  font-weight: bold;
+}
+s {
+  text-decoration: line-through;
+}
+u, .text-underline {
+  text-decoration: underline;
+}
+
+// ─── Font family ────────
+body{
+  font-family: "Lora";
+}

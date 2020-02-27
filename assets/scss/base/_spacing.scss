@@ -1,0 +1,29 @@
+/*
+|.------------------------------------------------------------------
+| = 5. Spacing
+|--------------------------------------------------------------------------
+*/
+$sizes: (
+  xxxxs: --space-xxxxs,
+  xxxs: --space-xxxs,
+  xxs: --space-xxs,
+  xs: --space-xs,
+  sm: --space-sm,
+  md: --space-md,
+  lg: --space-lg,
+  xl: --space-xl,
+  xxl: --space-xxl,
+  xxxl: --space-xxxl,
+  xxxxl: --space-xxxxl
+);
+
+@each $name, $value in $sizes {
+  .padding-#{$name} {
+    padding: #{$value};
+  }
+}
+@each $name, $value in $sizes {
+  .margin-#{$name} {
+    margin: #{$value};
+  }
+}

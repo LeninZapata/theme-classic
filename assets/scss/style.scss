@@ -1,0 +1,38 @@
+/**
+|--------------------------------------------------------------------------
+| Theme HTML
+|--------------------------------------------------------------------------
+|
+| Theme and base structure for the design of themes, this skeleton is for
+| effects of changes.
+|
+| = 0. Root Variables
+| = 1. Reset
+| = 2. Breakpoints
+| = 3. Typography
+| = 4. Colors
+| = 5. Spacing
+| = 6. Visibility
+| = 7. Zindex
+| = 8. Accessibility
+| = 9. Forms
+| = 10. Buttons
+| = 11. Icons
+| = 12. Grid Layout
+| = 13. Utils
+| = 14. Shared Styles
+| = 15. Wordpress theme
+|   = 15.1 Wp class
+|   = 15.2 Layouts styles
+|   = 15.3 Content
+|   = 15.4 Forms
+|   = 15.5 Header
+|   = 15.6 Footer
+| = 16. Components
+|   = 16.1 Author Box
+|   = 16.2 Post Nav
+|   = 16.3 Comments
+|*/
+
+@import "base";
+@import "custom";

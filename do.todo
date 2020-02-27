@@ -1,0 +1,11 @@
+Corregir:
+    ☐ En DIBUJAR LAYOUTS falta el layouts de otros elementos
+        por ejemplo falta el del footer que si lo tiene el footer pero debe
+        estar solo debe estar en esa parte de DRAW LGRID.
+    ☐ Ver si en COLOR y TIPOGRAFIAS poner en realidad solo los fonts de las clases WP
+        es decir, que si meta tiene un font diferente este debe cargarse en TIPOGRAFIA scss, y no dentro de WORDPRESS.scaa
+        esto hay que analizarlo para ver como queda bien, la cosa es que debe ser reutilizable en el futuro y facil de hacerlo.
+    ☐ en TIPOGRAFIA clasificar lo que es solo SIZE y otra font-family
+        actualmente esta  un shampoo
+    ✔ Pienso que layout.scss hay que crear para poner alli solo layouts @done(20-02-27 04:28)
+        pienso que si color, tipografia y layouts se separan entonces todo quedara mas sencillo.

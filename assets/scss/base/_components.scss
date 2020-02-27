@@ -1,0 +1,182 @@
+/*
+|--------------------------------------------------------------------------
+| = 16. Components
+|--------------------------------------------------------------------------
+*/
+/* = 16.1 Author Box */
+.theme-content{
+    .author-box{
+        line-height: var(--theme-body-line-height);
+        @include spacing( $direction: d, $size: var(--theme-space-md), $size2: 0 );
+        @include spacing( $attr: margin, $direction: b, $size: var(--theme-space-md) );
+        border-top: 0.1rem solid var(--theme-white-ter);
+        border-bottom: 0.1rem solid var(--theme-white-ter);
+
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .author-box--avatar{
+            width: 80px; // var(--theme-space-xxl);
+            @include spacing($direction: r, $size: var(--theme-space-x));
+            img{
+                width: 70px;
+                height: auto;
+                max-width: none;
+            }
+            @include breakpoint(tablet){
+                width: 100px; // var(--theme-space-xxl);
+            }
+        }
+        .author-box--meta{
+            .author-box--meta__header{
+                a{
+                    font-weight: 700;
+                    color: var(--theme-color-black);
+                    text-decoration: none;
+                }
+            }
+            > div{
+                margin-bottom: var(--theme-space-xxs);
+            }
+        }
+    }
+}
+
+
+
+
+/* = 16.2 Post Nav */
+.theme-content{
+    .posts-nav{
+        font-size: 15px; // parent font [em inner]
+        display: block;
+        @include spacing($attr: margin, $direction: b, $size: var(--theme-space-md));
+        @include breakpoint(tablet){
+            display: flex;
+            justify-content: space-between;
+        }
+        .post-nav{
+            @include spacing($attr: margin, $direction: b, $size: var(--theme-space-md));
+            display: inline-block;
+            width: 100%;
+            @include breakpoint(tablet){
+                width: 50%;
+            }
+        }
+        .post-nav__prev,.post-nav__next{
+            .post-nav__prev--header{
+                margin-bottom: var(--theme-space-sm);
+                text-transform: uppercase;
+                display: block;
+            }
+            .post-nav__prev--title{
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2; /* number of lines to show */
+
+                line-height: var(--theme-text-scale-ratio);
+                font-size: .9em;
+                @include breakpoint(tablet){
+                    font-size: 1em;
+                }
+            }
+        }
+        a{
+            color: var(--theme-color-black);
+            text-decoration: none;
+            line-height: 1;
+            font-size: em( var(--theme-text-base-size) );
+            img{
+                float: left;
+                @include spacing($attr: margin, $direction: r, $size: var(--theme-space-sm));
+            }
+        }
+        .post-nav__next{
+            img{
+                float: right;
+                @include spacing($attr: margin, $direction: l, $size: var(--theme-space-sm));
+                margin-right: 0;
+            }
+            .post-nav__prev--header,.post-nav__prev--title{
+                text-align: right;
+            }
+        }
+    }
+}
+
+/* = = 16.3 Comments */
+.theme-comments{
+    .theme-comment-data{
+        display: flex;
+        @include spacing($attr: margin, $direction: b, $size: var(--theme-space-sm));
+        .theme-comment-gravatar{
+            width: 48px;
+            height: 48px;
+            @include spacing($attr: margin, $direction: r, $size: var(--theme-space-md));
+            @include breakpoint(tablet){
+                width: 64px;
+                height: 64px;
+            }
+            img{
+                object-fit: cover;
+                width: 48px;
+                height: 48px;
+                @include breakpoint(tablet){
+                    width: 64px;
+                    height: 64px;
+                }
+            }
+        }
+        .theme-comment-metas{
+            display: flex;
+            flex-direction: column;
+            .theme-comment-meta-author{
+                a{
+                    font-size: 1.2em;
+                    color: var(--theme-black-ter);
+                    font-weight: 700;
+                    text-decoration: none;
+                }
+            }
+            .theme-comment-meta-date{
+                a{
+                    color: var(--theme-grey-dark);
+                }
+            }
+        }
+    }
+    .theme-comment-meta-links{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        a{
+            @include spacing($attr: margin, $direction: l, $size: var(--theme-space-sm));
+        }
+    }
+    .comment-first{
+        @include spacing($attr: margin, $direction: b, $size: var(--theme-space-sm));
+    }
+    .theme-comment-list{
+        li.comment{
+            .theme-comment-content{
+                p{
+                    @include spacing($attr: margin, $direction: b, $size: 0);
+                }
+            }
+        }
+    }
+    .comment-respond{
+        form{
+            input[type="text"]{
+                width: 100%;
+                @include breakpoint(mobile-lands){
+                    width: 50%;
+                }
+            }
+        }
+    }
+}

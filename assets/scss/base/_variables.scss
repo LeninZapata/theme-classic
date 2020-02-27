@@ -1,0 +1,133 @@
+/*
+|--------------------------------------------------------------------------
+| = 0. Root Variables
+|--------------------------------------------------------------------------
+*/
+:root {
+  /* ─── Fonts ──────── */
+  --theme-font-primary  : "Frank Ruhl Libre";
+  --theme-font-secondary: serif;
+
+  /* ─── Text size ──────── */
+  --theme-text-rem-initial: 10px; /* Reset default 1rem = 16px to a new unit (10px) */
+  --theme-text-base-size  : 1.6rem;  /* 62.5% or 10px then 0.1rem = 1px e.g.: 1.8rem = 18px */
+  --theme-text-scale-ratio: 1.2;
+
+  /* ─── Line height ──────── */
+  --theme-heading-line-height: 1.2;
+  --theme-body-line-height   : 1.5;
+
+  /* ─── Spacing ──────── */
+  --theme-space-unit : var(--theme-text-base-size);
+  --theme-space-xxxxs: calc(0.125 * var(--theme-space-unit));  // ~0,2 rem
+  --theme-space-xxxs : calc(0.25 * var(--theme-space-unit));   // ~0,4 rem
+  --theme-space-xxs  : calc(0.375 * var(--theme-space-unit));  // ~0,6 rem
+  --theme-space-xs   : calc(0.5 * var(--theme-space-unit));    // ~0,8 rem
+  --theme-space-x    : calc(0.6 * var(--theme-space-unit));    // ~0,96 rem
+  --theme-space-sm   : calc(0.75 * var(--theme-space-unit));   // ~1,2 rem
+  --theme-space-md   : calc(1.25 * var(--theme-space-unit));   // ~2 rem
+  --theme-space-lg   : calc(2 * var(--theme-space-unit));      // ~3,2 rem
+  --theme-space-xl   : calc(3.25 * var(--theme-space-unit));   // ~5,2 rem
+  --theme-space-xxl  : calc(5.25 * var(--theme-space-unit));   // ~8,4 rem
+  --theme-space-xxxl : calc(8.5 * var(--theme-space-unit));    // ~13,6 rem
+  --theme-space-xxxxl: calc(13.75 * var(--theme-space-unit));  // ~22 rem
+
+  /* ─── Text scale ──────── */
+  --theme-text-xs  : calc( var(--theme-text-base-size) / var(--theme-text-scale-ratio) / var(--theme-text-scale-ratio)  );
+  --theme-text-sm  : calc( var(--theme-text-base-size) / var(--theme-text-scale-ratio) );
+  --theme-text-md  : calc( var(--theme-text-sm) * var(--theme-text-scale-ratio) );
+  --theme-text-lg  : calc( var(--theme-text-md) * var(--theme-text-scale-ratio) );
+  --theme-text-xl  : calc( var(--theme-text-lg) * var(--theme-text-scale-ratio) );
+  --theme-text-xxl : calc( var(--theme-text-xl) * var(--theme-text-scale-ratio) );
+  --theme-text-xxxl: calc( var(--theme-text-xxl) * var(--theme-text-scale-ratio) );
+  --theme-text-xxxxl: calc( var(--theme-text-xxxl) * var(--theme-text-scale-ratio) );
+  --theme-text-xxxxxl: calc( var(--theme-text-xxxxl) * var(--theme-text-scale-ratio) );
+
+  /* ─── Colors ──────── */
+  --theme-color-primary      : hsl(220, 88%, 62%);
+  --theme-color-primary-dark : rgb(35, 105, 245);
+  --theme-color-primary-light: color-mod(var(--theme-color-primary) tint(15%));
+  --theme-color-primary-bg   : color-mod(var(--theme-color-primary) alpha(20%));
+  --theme-color-secondary    : #41f5ce;
+
+  --theme-color-border   : #d1d0d2;
+
+  --theme-color-text         : #2D3748;
+  --theme-color-text-other   : #718096;
+  --theme-color-text-headings: #2D3748;
+
+  --theme-color-white  : hsl(0, 0%, 100%);
+  --theme-color-black  : hsl(0, 0%, 4%);
+  --theme-color-light  : hsl(0, 0%, 96%);
+  --theme-color-dark   : hsl(0, 0%, 21%);
+  --theme-color-blue   : hsl(217, 71%, 53%);
+  --theme-color-turke  : hsl(204, 86%, 53%);
+  --theme-color-green  : hsl(141, 53%, 53%);
+  --theme-color-yellow : hsl(48, 100%, 67%);
+  --theme-color-fuchsia: hsl(348,   100%, 61%);
+  --theme-color-red    : hsl(357, 74%, 40%);
+
+  --theme-color-link        : var(--theme-color-primary);
+  --theme-color-link-visited: var(--theme-color-primary-dark);
+
+  --theme-black-bis   : hsl(0, 0%, 7%);
+  --theme-black-ter   : hsl(0, 0%, 14%);
+  --theme-grey-darker : hsl(0, 0%, 21%);
+  --theme-grey-dark   : hsl(0, 0%, 29%);
+  --theme-grey-light  : hsl(0, 0%, 71%);
+  --theme-grey-lighter: hsl(0, 0%, 86%);
+  --theme-white-ter   : hsl(0, 0%, 96%);
+  --theme-white-bis   : hsl(0, 0%, 98%);
+
+  /* ─── Visibility ──────── */
+  --theme-display: block;
+
+  /* ─── z-index ──────── */
+  --theme-zindex-header       : 2;
+  --theme-zindex-popover      : 5;   // e.g., tooltips and dropdown
+  --theme-zindex-fixed-element: 10;  // e.g., 'back to top' button
+  --theme-zindex-overlay      : 15;  // e.g., modals and dialogs
+
+  /* ─── Icons size ──────── */
+  --theme-icon-xxxs: 0.8rem;
+  --theme-icon-xxs: 1.2rem;
+  --theme-icon-xs : 1.6rem;
+  --theme-icon-sm : 2.4rem;
+  --theme-icon-md : 3.2rem;
+  --theme-icon-lg : 4.8rem;
+  --theme-icon-xl : 6.4rem;
+  --theme-icon-xxl: 12.8rem;
+
+  /* ─── layout ──────── */
+  // rem based 10px 1rem, eg: 0.1rem = 1px. 1.8rem = 18px
+  --theme-max-width-xxxxs: 32rem;     // ~320px
+  --theme-max-width-xxxs : 41.6rem;   // ~416px
+  --theme-max-width-xxs  : 51.2rem;   // ~512px
+  --theme-max-width-xs   : 60.8rem;   // ~608px
+  --theme-max-width-sm   : 76.8rem;   // ~768px
+  --theme-max-width-md   : 102.4rem;  // ~1024px
+  --theme-max-width-lg   : 128rem;    // ~1280px
+  --theme-max-width-xl   : 144rem;    // ~1440px
+  --theme-max-width-xxl  : 160rem;    // ~1600px
+  --theme-max-width-xxxl : 192rem;    // ~1920px
+  --theme-max-width-xxxxl: 240rem;    // ~2400px
+
+  /* ─── Radius ──────── */
+  --theme-radius-sm: calc(var(--theme-radius, 0.25rem)/2);
+  --theme-radius-md: var(--theme-radius, 0.25rem);
+  --theme-radius-lg: calc(var(--theme-radius, 0.25rem)*2);
+
+  /* ─── Box shadow ──────── */
+  --theme-shadow-xs: 0 1px 2px rgba(0, 0, 0, .1); // lower depth;
+  --theme-shadow-sm: 0 1px 2px rgba(0, 0, 0, .085), 0 1px 8px rgba(0, 0, 0, .1); // low depth;
+  --theme-shadow-md: 0 1px 8px rgba(0, 0, 0, .085), 0 8px 24px rgba(0, 0, 0, .1); // medium depth
+  --theme-shadow-lg: 0 1px 8px rgba(0, 0, 0, .085), 0 16px 48px rgba(0, 0, 0, .085), 0 24px 60px rgba(0, 0, 0, .085); // high depth
+  --theme-shadow-xl: 0 1px 8px rgba(0, 0, 0, .085), 0 16px 64px rgba(0, 0, 0, .15), 0 24px 100px rgba(0, 0, 0, .15); // higher depth
+
+  /* ─── Timing functions ──────── */
+  // credits: https://github.com/ai/easings.net
+  --theme-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --theme-ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
+  --theme-ease-in: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  --theme-ease-out: cubic-bezier(0.215, 0.61, 0.355, 1);
+}

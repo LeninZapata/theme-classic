@@ -1,0 +1,39 @@
+@function parseInt($n) {
+  // 2
+  @return $n / ($n * 0 + 1);
+}
+@function _return_rem($values, $based: 10) {
+  $px: (); // 3
+  $rem: (); // 3
+
+  @each $value in $values {
+    // 4
+
+    @if $value == 0 or $value == auto {
+      // 5
+      $px: append($px, $value);
+      $rem: append($rem, $value);
+    } @else {
+      $unit: unit($value); // 6
+      $val: parseInt($value); // 6
+
+      @if $unit == 'px' {
+        // 7
+        //$px: append($px, $value);
+        $rem: append($rem, ($val / $based + rem));
+      }
+
+      @if $unit == 'rem' {
+        // 7
+        $rem: append($px, ($val * $based + px));
+        // $rem: append($rem, $value);
+      }
+    }
+  }
+  @return $rem;
+  @if $px == $rem {
+    @return $rem;
+  } @else {
+    @return $px;
+  }
+}

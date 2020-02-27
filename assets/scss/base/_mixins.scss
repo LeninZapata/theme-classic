@@ -1,0 +1,154 @@
+@mixin rem($property, $values) {
+  $px: ();
+  $rem: ();
+
+  @each $value in $values {
+
+    @if $value == 0 or $value == auto {
+      $px: append($px, $value);
+      $rem: append($rem, $value);
+    } @else {
+      $unit: unit($value);
+      $val: parseInt($value);
+
+      @if $unit == 'px' {
+        $px: append($px, $value);
+        $rem: append($rem, ($val / 10 + rem));
+      }
+
+      @if $unit == 'rem' {
+        $px: append($px, ($val * 10 + px));
+        $rem: append($rem, $value);
+      }
+    }
+  }
+
+  @if $px == $rem {
+    @if( $property ){
+      #{$property}: $px;
+    }
+  } @else {
+    #{$property}: $px;
+    #{$property}: $rem;
+  }
+}
+
+/**
+In generating it is responsible for adding spaces for margin and padding
+it can be done from all possible addresses top, bottom, left, right.
+Also double direction as left-right and top-bottom combined and individual.
+The default attribute is padding, but this is editable.
+*/
+@mixin spacing($attr: padding, $direction: all, $size: md, $size2: 0) {
+  @if $direction == all {
+      @include spacer($attr, $size);
+  }
+  @else if $direction == l {
+      @include spacer($attr + "-left", $size);
+  }
+  @else if $direction == r {
+      @include spacer($attr + "-right", $size);
+  }
+  @else if $direction == t {
+      @include spacer($attr + "-top", $size);
+  }
+  @else if $direction == b {
+      @include spacer($attr + "-bottom", $size);
+  }
+  @else if $direction == x {
+      @include spacer($attr + "-left", $size);
+      @include spacer($attr + "-right", $size);
+  }
+  @else if $direction == y {
+      @include spacer($attr + "-top", $size);
+      @include spacer($attr + "-bottom", $size);
+  }
+  @else if $direction == d {
+    $attr: $size $size2;
+  }
+}
+
+@mixin spacing_inline($top: 0, $right: 0, $bottom: 0, $left: 0, $attr: padding) {
+  #{$attr}: $top $right $bottom $left;
+}
+
+//just another helper mixin to avoid repeating code
+@mixin spacer($attribute, $unit) {
+  $spaces: (none: 0,
+    xxxxs: 0.2rem,    // ~  2px
+    xxxs : 0.4rem,    // ~  4px
+    xxs  : 0.6rem,    // ~  6px
+    xs   : 0.8rem,    // ~  8px
+    x    : 0.96rem,   // ~  8px
+    sm   : 1.2rem,    // ~  1,2px
+    md   : 2rem,      // ~  20px
+    lg   : 3.2rem,    // ~  32px
+    xl   : 5.2rem,    // ~  52px
+    xxl  : 8.4rem,    // ~  84px
+    xxxl : 13.6rem,   // ~  136px
+    xxxxl: 22rem      // ~  220px
+  )
+  !default;
+
+  @if map-has-key($spaces, $unit) {
+    #{$attribute}: map-get($spaces, $unit);
+  } @else{
+    #{$attribute}: $unit;
+  }
+}
+
+// edit font rendering -> tip: use for light text on dark backgrounds
+@mixin fontSmooth {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// crop top space on text elements - caused by line height
+@mixin lhCrop($line-height, $capital-letter: 1) {
+  &::before {
+    content: '';
+    display: block;
+    height: 0;
+    width: 0;
+    margin-top: calc((#{$capital-letter} - #{$line-height}) * 0.5em);
+  }
+}
+
+// reset user agent style
+@mixin reset {
+  background-color: transparent;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  color: inherit;
+  line-height: inherit;
+  appearance: none;
+}
+
+// Edit Units
+@mixin spaceUnit($space-unit) { // edit the space unit on a component level
+  --space-unit:  #{$space-unit};
+  --space-xxxxs: calc(0.125 * #{$space-unit});
+  --space-xxxs:  calc(0.25 * #{$space-unit});
+  --space-xxs:   calc(0.375 * #{$space-unit});
+  --space-xs:    calc(0.5 * #{$space-unit});
+  --space-sm:    calc(0.75 * #{$space-unit});
+  --space-md:    calc(1.25 * #{$space-unit});
+  --space-lg:    calc(2 * #{$space-unit});
+  --space-xl:    calc(3.25 * #{$space-unit});
+  --space-xxl:   calc(5.25 * #{$space-unit});
+  --space-xxxl:  calc(8.5 * #{$space-unit});
+  --space-xxxxl: calc(13.75 * #{$space-unit});
+  --component-padding: var(--theme-space-md);
+}
+
+@mixin textUnit($text-unit, $text-scale-ratio: 1.2) { // edit the text unit and the type scale on a component level
+  --text-xs: calc((#{$text-unit} / #{$text-scale-ratio}) / #{$text-scale-ratio});
+  --text-sm: calc(var(--theme-text-xs) * #{$text-scale-ratio});
+  --text-md: calc(var(--theme-text-sm) * #{$text-scale-ratio} * #{$text-scale-ratio});
+  --text-lg: calc(var(--theme-text-md) * #{$text-scale-ratio});
+  --text-xl: calc(var(--theme-text-lg) * #{$text-scale-ratio});
+  --text-xxl: calc(var(--theme-text-xl) * #{$text-scale-ratio});
+  --text-xxxl: calc(var(--theme-text-xxl) * #{$text-scale-ratio});
+  font-size: $text-unit;
+}

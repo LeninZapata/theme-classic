@@ -1,0 +1,42 @@
+/*
+|.------------------------------------------------------------------
+| = 11. Icons
+|--------------------------------------------------------------------------
+*/
+.icon {
+  // make sure to include the font-family declaration if you are using an icon font
+  font-family: 'fontName';
+}
+.icon {
+  display: inline-block;
+  color: inherit;
+  fill: currentColor;
+  height: 1em;
+  width: 1em;
+  line-height: 1;
+  flex-shrink: 0;
+  max-width: initial;
+}
+
+// icon size
+.icon--xxxs { font-size: var(--theme-icon-xxxs); }
+.icon--xxs { font-size: var(--theme-icon-xxs); }
+.icon--xs  { font-size: var(--theme-icon-xs); }
+.icon--sm  { font-size: var(--theme-icon-sm); }
+.icon--md  { font-size: var(--theme-icon-md); }
+.icon--lg  { font-size: var(--theme-icon-lg); }
+.icon--xl  { font-size: var(--theme-icon-xl); }
+.icon--xxl { font-size: var(--theme-icon-xxl); }
+
+.icon--is-spinning { // rotate the icon infinitely
+  animation: icon-spin 1s infinite linear;
+}
+
+@keyframes icon-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

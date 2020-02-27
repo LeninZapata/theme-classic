@@ -1,0 +1,107 @@
+/*
+|.------------------------------------------------------------------
+| = 12. Grid Layout
+|--------------------------------------------------------------------------
+*/
+
+// classes used to center content on x-axis and set content max width
+.container {
+  width: var(--theme-max-width-md);
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  @include breakpoint(desktop){
+    max-width: 1024px;
+  }
+}
+
+.max-width-xxxxs { max-width: var(--theme-max-width-xxxxs); }
+.max-width-xxxs  { max-width: var(--theme-max-width-xxxs); }
+.max-width-xxs   { max-width: var(--theme-max-width-xxs); }
+.max-width-xs    { max-width: var(--theme-max-width-xs); }
+.max-width-sm    { max-width: var(--theme-max-width-sm); }
+.max-width-md    { max-width: var(--theme-max-width-md); }
+.max-width-lg    { max-width: var(--theme-max-width-lg); }
+.max-width-xl    { max-width: var(--theme-max-width-xl); }
+.max-width-xxl   { max-width: var(--theme-max-width-xxl); }
+.max-width-xxxl  { max-width: var(--theme-max-width-xxxl); }
+.max-width-xxxxl { max-width: var(--theme-max-width-xxxxl); }
+
+// alt approach - max-width is updated at  specific breakpoints
+.max-width-adaptive-sm,
+.max-width-adaptive-md,
+.max-width-adaptive,
+.max-width-adaptive-lg,
+.max-width-adaptive-xl {
+  max-width: var(--theme-max-width-xs);
+}
+
+// ─── Main Layouts ────────
+.theme-header, .theme-content, .theme-footer{
+  display: block;
+  @include breakpoint(tablet){
+    display: grid;
+  }
+}
+.theme-header{
+  display: grid;
+  grid-template-columns: 1fr var(--theme-space-xxl);
+  background-color: var(--color-branding-background, transparent);
+  .layout-header{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    @include breakpoint(tablet){
+      grid-area: header;
+    }
+    &__text{
+      display:none;
+    }
+  }
+  .layout-nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include breakpoint(tablet){
+      grid-area: nav;
+    }
+  }
+  .button-togger{
+    grid-area: nav-button-togger;
+  }
+  @include breakpoint(tablet){
+    grid-template-columns: var(--theme-space-xxxx) 1fr;
+    grid-template-areas: var(--theme-layout-header,"header" "nav");
+    .button-togger{
+      display: none;
+    }
+  }
+}
+.theme-content{
+  display: block;
+  @include breakpoint(tablet){
+    display: grid;
+    grid-template-columns: var(--theme-layout-content,[content] 1fr [sidebar] 300px);
+    grid-template-areas: var(--theme-layout-content,"content sidebar");
+  }
+  .content{
+    grid-area: content;
+  }
+  .sidebar{
+    grid-area: sidebar;
+  }
+}
+.theme-footer{
+  background-color: var(--theme-grey-lighter);
+  .footer{
+    @include breakpoint(tablet){
+      display:grid;
+      &.footer-3{
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      &.footer-2{
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  }
+}
