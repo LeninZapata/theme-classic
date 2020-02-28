@@ -46,8 +46,10 @@
 
 .theme-header{
   display: grid;
+  
   grid-template-columns: 1fr var(--theme-space-xxl);
   background-color: var(--color-branding-background, transparent);
+  background-color: red;
   .layout-header{
     display: flex;
     align-items: center;

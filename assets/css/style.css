@@ -864,6 +864,7 @@ label {
   -ms-grid-columns: 1fr var(--theme-space-xxl);
       grid-template-columns: 1fr var(--theme-space-xxl);
   background-color: var(--color-branding-background, transparent);
+  background-color: red;
 }
 
 .theme-header .layout-header {

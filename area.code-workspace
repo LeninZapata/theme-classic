@@ -29,11 +29,11 @@
 			// "file:///C:/Users/Lenin/synthwave84.css"
 		],
 		"workbench.colorTheme": "Ayu Dark Bordered",
-		"workbench.colorCustomizations": {
+		/*"workbench.colorCustomizations": {
 			"activityBar.background": "#0f0f0f",
 			"titleBar.activeBackground": "#030303",
 			"titleBar.activeForeground": "#5e5b5b",
-		},
+		},*/
 		/* "selectinsidesidebar.defaultStyle": {
 			"backgroundColor": "#29384D",
 			"overviewRulerColor": "#fff"
