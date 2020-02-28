@@ -1,18 +1,11 @@
 {
 	"folders": [
 		{
+			"name": "theme-classic",
 			"path": "."
-		},
-		{
-			"path": "C:\\xampp\\htdocs\\html\\codyhouse-framework-master"
 		}
 	],
 	"settings": {
-		/* "workbench.colorCustomizations": {
-			"activityBar.background": "#31364A",
-			"titleBar.activeBackground": "#292D3E",
-			"titleBar.activeForeground": "#F1FEED"
-		}, */
 		"liveSassCompile.settings.formats":[
 			{
 				"format": "expanded",
@@ -30,21 +23,5 @@
 			".vscode/**"
 		],
 		"liveSassCompile.settings.generateMap": false,
-		"px-to-rem.px-per-rem": 10,
-		"liveServer.settings.multiRootWorkspaceName": "theme-classic",
-		"vscode_custom_css.imports" : [
-			// "file:///C:/Users/Lenin/synthwave84.css"
-		],
-		"workbench.colorTheme": "Ayu Dark Bordered",
-		"workbench.colorCustomizations": {
-			"activityBar.background": "#0f0f0f",
-			"titleBar.activeBackground": "#030303",
-			"titleBar.activeForeground": "#5e5b5b",
-		},
-		/* "selectinsidesidebar.defaultStyle": {
-			"backgroundColor": "#29384D",
-			"overviewRulerColor": "#fff"
-		} */
-
 	}
 }
