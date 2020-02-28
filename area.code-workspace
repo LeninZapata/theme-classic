@@ -30,8 +30,8 @@
 			".vscode/**"
 		],
 		"liveSassCompile.settings.generateMap": false,
-		"px-to-rem.px-per-rem": 10,
 		"liveServer.settings.multiRootWorkspaceName": "theme-classic",
+		"px-to-rem.px-per-rem": 10,
 		"vscode_custom_css.imports" : [
 			// "file:///C:/Users/Lenin/synthwave84.css"
 		],
