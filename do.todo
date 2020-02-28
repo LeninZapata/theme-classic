@@ -9,3 +9,5 @@ Corregir:
         actualmente esta  un shampoo
     ✔ Pienso que layout.scss hay que crear para poner alli solo layouts @done(20-02-27 04:28)
         pienso que si color, tipografia y layouts se separan entonces todo quedara mas sencillo.
+    ☐ En la caja de autor, el nombre del autor no va en relacion con la foto, hay una tecnica para eliminar este espacio
+    ☐ Puedes hacer que el -- lo cambias por __ porque primero es el elemento y luego el modificador, esto en scss y html

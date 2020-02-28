@@ -192,6 +192,8 @@ footer #wp-calendar th,footer #wp-calendar  td, footer #wp-calendar table{
       color: var(--theme-color-text-other);
       @include spacing($attr: margin, $direction: t, $size: var(--theme-space-sm));
       @include spacing($attr: margin, $direction: b, $size: var(--theme-space-sm));
+      display: flex;
+      justify-content: center;
       font-family: "Lato";
       a,time,span{
         font-family: "Lato";

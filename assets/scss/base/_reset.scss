@@ -45,13 +45,15 @@ ol, ul {
   list-style: none;
 }
 blockquote{
-  display: block;
-  font-size: var(--theme-space-x);
   line-height: var(--theme-body-line-height);
+  color      : var(--theme-grey-dark);
+  @include spacing_inline( $attr: margin, $top: var(--theme-space-md), $right:0, $bottom:0 );
+  @include spacing( $direction: x, $size: var(--theme-space-md) );
+
+  display   : block;
   font-style: italic;
-  color: var(--theme-grey-dark);
-  @include spacing_inline( var(--theme-space-xxs), 0, var(--theme-space-xxs), var(--theme-space-md) );
-  border-left: var(--theme-space-xxs) solid var(--theme-color-primary);
+  box-sizing: border-box;
+  font-style: italic;
 }
 blockquote, q {
   quotes: none;

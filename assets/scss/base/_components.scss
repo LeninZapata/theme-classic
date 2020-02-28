@@ -7,8 +7,8 @@
 .theme-content{
     .author-box{
         line-height: var(--theme-body-line-height);
-        @include spacing( $direction: d, $size: var(--theme-space-md), $size2: 0 );
-        @include spacing( $attr: margin, $direction: b, $size: var(--theme-space-md) );
+        @include spacing( $direction: ud, $size: var(--theme-space-lg) );
+        //@include spacing( $attr: margin, $direction: b, $size: var(--theme-space-md) );
         border-top: 0.1rem solid var(--theme-white-ter);
         border-bottom: 0.1rem solid var(--theme-white-ter);
 
@@ -37,9 +37,9 @@
                     text-decoration: none;
                 }
             }
-            > div{
+            /* > div{
                 margin-bottom: var(--theme-space-xxs);
-            }
+            } */
         }
     }
 }
@@ -50,9 +50,10 @@
 /* = 16.2 Post Nav */
 .theme-content{
     .posts-nav{
+        /* @include spacing($attr: margin, $direction: b, $size: var(--theme-space-md)); */
+        @include spacing( $direction: y, $size: var(--theme-space-lg) );
         font-size: 15px; // parent font [em inner]
         display: block;
-        @include spacing($attr: margin, $direction: b, $size: var(--theme-space-md));
         @include breakpoint(tablet){
             display: flex;
             justify-content: space-between;
@@ -63,6 +64,9 @@
             width: 100%;
             @include breakpoint(tablet){
                 width: 50%;
+            }
+            &:last-child{
+                @include spacing($attr: margin, $direction: b, $size: 0);
             }
         }
         .post-nav__prev,.post-nav__next{
@@ -110,9 +114,14 @@
 
 /* = = 16.3 Comments */
 .theme-comments{
+    border-top: 0.1rem solid var(--theme-white-ter);
+    a{
+        font-size: 1.6rem;
+    }
     .theme-comment-data{
-        display: flex;
         @include spacing($attr: margin, $direction: b, $size: var(--theme-space-sm));
+        @include spacing( $direction: b, $size: var(--theme-space-sm));
+        border-bottom: 0.1rem solid var(--theme-white-ter);
         .theme-comment-gravatar{
             width: 48px;
             height: 48px;
@@ -132,11 +141,8 @@
             }
         }
         .theme-comment-metas{
-            display: flex;
-            flex-direction: column;
             .theme-comment-meta-author{
                 a{
-                    font-size: 1.2em;
                     color: var(--theme-black-ter);
                     font-weight: 700;
                     text-decoration: none;
@@ -144,28 +150,40 @@
             }
             .theme-comment-meta-date{
                 a{
-                    color: var(--theme-grey-dark);
+                    color: var(--theme-color-link);
                 }
             }
         }
     }
     .theme-comment-meta-links{
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        a{
-            @include spacing($attr: margin, $direction: l, $size: var(--theme-space-sm));
+        &--separate{
+            @include spacing($attr: margin, $direction: sides, $size: var(--theme-space-xxs));
+            &:before{
+                content: '·';
+            }
         }
     }
-    .comment-first{
-        @include spacing($attr: margin, $direction: b, $size: var(--theme-space-sm));
+    .comment-title{
+        @include spacing($attr: margin, $direction: y, $size: var(--theme-space-lg));
     }
     .theme-comment-list{
         li.comment{
+            @include spacing($direction: b, $size: var(--theme-space-lg));
+            //@include spacing( $attr: margin, $direction: b, $size: var(--theme-space-lg));
             .theme-comment-content{
                 p{
-                    @include spacing($attr: margin, $direction: b, $size: 0);
+                    @include spacing($attr: margin, $direction: t, $size: var(--theme-space-lg));
+                    &:first-child{
+                        @include spacing($attr: margin, $direction: t, $size: 0);
+                    }
                 }
+            }
+            .children{
+                @include spacing( $direction: left, $size: var(--theme-space-lg) );
+                @include spacing( $attr: margin, $direction: top, $size: var(--theme-space-lg) );
+            }
+            :last-child{
+                @include spacing( $attr: margin, $direction: b, $size: 0);
             }
         }
     }

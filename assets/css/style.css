@@ -212,13 +212,16 @@ ol, ul {
 }
 
 blockquote {
-  display: block;
-  font-size: var(--theme-space-x);
   line-height: var(--theme-body-line-height);
-  font-style: italic;
   color: var(--theme-grey-dark);
-  padding: var(--theme-space-xxs) 0 var(--theme-space-xxs) var(--theme-space-md);
-  border-left: var(--theme-space-xxs) solid var(--theme-color-primary);
+  margin: var(--theme-space-md) 0 0 0;
+  padding-left: var(--theme-space-md);
+  padding-right: var(--theme-space-md);
+  display: block;
+  font-style: italic;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-style: italic;
 }
 
 blockquote, q {
@@ -912,9 +915,6 @@ label {
 @media (min-width: 48rem) {
   .theme-header {
     /* min-width 768px = 48rem based in base 16px */
-    -ms-grid-columns: var(--theme-space-xxxx) 1fr;
-        grid-template-columns: var(--theme-space-xxxx) 1fr;
-        grid-template-areas: var(--theme-layout-header, "header" "nav");
   }
   .theme-header .button-togger {
     display: none;
@@ -944,8 +944,30 @@ label {
   grid-area: sidebar;
 }
 
-.theme-footer {
-  background-color: var(--theme-grey-lighter);
+.theme-comments .theme-comment-data {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.theme-comments .theme-comment-data .theme-comment-metas {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.theme-comments .theme-comment-meta-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
 @media (min-width: 48rem) {
@@ -1415,6 +1437,12 @@ footer #wp-calendar th, footer #wp-calendar td, footer #wp-calendar table {
   color: var(--theme-color-text-other);
   margin-top: var(--theme-space-sm);
   margin-bottom: var(--theme-space-sm);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   font-family: "Lato";
 }
 
@@ -1559,7 +1587,8 @@ input[type="search"]:hover {
 /* = 16.1 Author Box */
 .theme-content .author-box {
   line-height: var(--theme-body-line-height);
-  margin-bottom: var(--theme-space-md);
+  padding-top: var(--theme-space-lg);
+  padding-bottom: var(--theme-space-lg);
   border-top: 0.1rem solid var(--theme-white-ter);
   border-bottom: 0.1rem solid var(--theme-white-ter);
   display: -webkit-box;
@@ -1594,21 +1623,25 @@ input[type="search"]:hover {
   }
 }
 
+.theme-content .author-box .author-box--meta {
+  /* > div{
+                margin-bottom: var(--theme-space-xxs);
+            } */
+}
+
 .theme-content .author-box .author-box--meta .author-box--meta__header a {
   font-weight: 700;
   color: var(--theme-color-black);
   text-decoration: none;
 }
 
-.theme-content .author-box .author-box--meta > div {
-  margin-bottom: var(--theme-space-xxs);
-}
-
 /* = 16.2 Post Nav */
 .theme-content .posts-nav {
+  /* @include spacing($attr: margin, $direction: b, $size: var(--theme-space-md)); */
+  padding-top: var(--theme-space-lg);
+  padding-bottom: var(--theme-space-lg);
   font-size: 15px;
   display: block;
-  margin-bottom: var(--theme-space-md);
 }
 
 @media (min-width: 48rem) {
@@ -1634,6 +1667,10 @@ input[type="search"]:hover {
     /* min-width 768px = 48rem based in base 16px */
     width: 50%;
   }
+}
+
+.theme-content .posts-nav .post-nav:last-child {
+  margin-bottom: 0;
 }
 
 .theme-content .posts-nav .post-nav__prev .post-nav__prev--header, .theme-content .posts-nav .post-nav__next .post-nav__prev--header {
@@ -1683,11 +1720,18 @@ input[type="search"]:hover {
 }
 
 /* = = 16.3 Comments */
+.theme-comments {
+  border-top: 0.1rem solid var(--theme-white-ter);
+}
+
+.theme-comments a {
+  font-size: 1.6rem;
+}
+
 .theme-comments .theme-comment-data {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   margin-bottom: var(--theme-space-sm);
+  padding-bottom: var(--theme-space-sm);
+  border-bottom: 0.1rem solid var(--theme-white-ter);
 }
 
 .theme-comments .theme-comment-data .theme-comment-gravatar {
@@ -1719,49 +1763,48 @@ input[type="search"]:hover {
   }
 }
 
-.theme-comments .theme-comment-data .theme-comment-metas {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
 .theme-comments .theme-comment-data .theme-comment-metas .theme-comment-meta-author a {
-  font-size: 1.2em;
   color: var(--theme-black-ter);
   font-weight: 700;
   text-decoration: none;
 }
 
 .theme-comments .theme-comment-data .theme-comment-metas .theme-comment-meta-date a {
-  color: var(--theme-grey-dark);
+  color: var(--theme-color-link);
 }
 
-.theme-comments .theme-comment-meta-links {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+.theme-comments .theme-comment-meta-links--separate {
+  margin-left: var(--theme-space-xxs);
+  margin-right: var(--theme-space-xxs);
 }
 
-.theme-comments .theme-comment-meta-links a {
-  margin-left: var(--theme-space-sm);
+.theme-comments .theme-comment-meta-links--separate:before {
+  content: '·';
 }
 
-.theme-comments .comment-first {
-  margin-bottom: var(--theme-space-sm);
+.theme-comments .comment-title {
+  margin-top: var(--theme-space-lg);
+  margin-bottom: var(--theme-space-lg);
+}
+
+.theme-comments .theme-comment-list li.comment {
+  padding-bottom: var(--theme-space-lg);
 }
 
 .theme-comments .theme-comment-list li.comment .theme-comment-content p {
+  margin-top: var(--theme-space-lg);
+}
+
+.theme-comments .theme-comment-list li.comment .theme-comment-content p:first-child {
+  margin-top: 0;
+}
+
+.theme-comments .theme-comment-list li.comment .children {
+  padding-left: var(--theme-space-lg);
+  margin-top: var(--theme-space-lg);
+}
+
+.theme-comments .theme-comment-list li.comment :last-child {
   margin-bottom: 0;
 }
 

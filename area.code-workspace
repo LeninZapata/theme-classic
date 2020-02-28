@@ -41,5 +41,10 @@
 			"titleBar.activeBackground": "#030303",
 			"titleBar.activeForeground": "#5e5b5b",
 		},
+		/* "selectinsidesidebar.defaultStyle": {
+			"backgroundColor": "#29384D",
+			"overviewRulerColor": "#fff"
+		} */
+
 	}
 }

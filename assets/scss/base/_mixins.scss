@@ -43,23 +43,23 @@ The default attribute is padding, but this is editable.
   @if $direction == all {
       @include spacer($attr, $size);
   }
-  @else if $direction == l {
+  @else if $direction == l or $direction == left {
       @include spacer($attr + "-left", $size);
   }
-  @else if $direction == r {
+  @else if $direction == r or $direction == right {
       @include spacer($attr + "-right", $size);
   }
-  @else if $direction == t {
+  @else if $direction == t or $direction == top {
       @include spacer($attr + "-top", $size);
   }
-  @else if $direction == b {
+  @else if $direction == b or $direction == bottom {
       @include spacer($attr + "-bottom", $size);
   }
-  @else if $direction == x {
+  @else if $direction == x  or $direction == sides {
       @include spacer($attr + "-left", $size);
       @include spacer($attr + "-right", $size);
   }
-  @else if $direction == y {
+  @else if $direction == y  or $direction == ud {
       @include spacer($attr + "-top", $size);
       @include spacer($attr + "-bottom", $size);
   }
@@ -69,7 +69,23 @@ The default attribute is padding, but this is editable.
 }
 
 @mixin spacing_inline($top: 0, $right: 0, $bottom: 0, $left: 0, $attr: padding) {
-  #{$attr}: $top $right $bottom $left;
+  $str_top   : null;
+  $str_right : null;
+  $str_bottom: null;
+  $str_left  : null;
+  @if( $top ){
+    $str_top: $top;
+  }
+  @if( $right ){
+    $str_right: $right;
+  }
+  @if( $bottom ){
+    $str_bottom: $bottom;
+  }
+  @if( $left ){
+    $str_left: $left;
+  }
+  #{$attr}: $str_top $str_right $str_bottom $str_left;
 }
 
 //just another helper mixin to avoid repeating code
