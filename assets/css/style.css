@@ -1411,6 +1411,7 @@ footer #wp-calendar th, footer #wp-calendar td, footer #wp-calendar table {
 /* = 15.3 Content */
 .theme-content .content {
   background-color: var(--theme-color-white);
+  background-color: blue;
   padding: var(--theme-space-md);
 }
 

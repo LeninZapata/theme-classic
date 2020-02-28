@@ -1,18 +1,11 @@
 {
 	"folders": [
 		{
+			"name": "theme-classic",
 			"path": "."
-		},
-		{
-			"path": "C:\\xampp\\htdocs\\html\\codyhouse-framework-master"
 		}
 	],
 	"settings": {
-		/* "workbench.colorCustomizations": {
-			"activityBar.background": "#31364A",
-			"titleBar.activeBackground": "#292D3E",
-			"titleBar.activeForeground": "#F1FEED"
-		}, */
 		"liveSassCompile.settings.formats":[
 			{
 				"format": "expanded",
