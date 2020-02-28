@@ -50,6 +50,7 @@
   grid-template-columns: 1fr var(--theme-space-xxl);
   background-color: var(--color-branding-background, transparent);
   background-color: red;
+  border:2px solid red;
   .layout-header{
     display: flex;
     align-items: center;
