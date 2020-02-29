@@ -13,13 +13,39 @@
     <div class="theme-layout">
 
       <section class="theme-header container">
+        <div class="layout-header__toggler">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
         <header class="layout-header">
-          <a href="#">Publishers</a>
-          <span class="layout-header__text">. Este es un sito creado por wordpress</span>
+          <a href="#" class="layout-header__logo">Publishers</a>
+          <span class="layout-header__descrip">Este es un sito creado por wordpress</span>
         </header>
-        <nav class="layout-nav">
-        </nav class="layout-header">
-        <span class="button-togger">=</span>
+        <ul class="layout-header__nav">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Support</a></li>
+          <li class="li-has-children">
+            <a >Blog</a>
+            <ul class="submenu">
+                <li><a href="">item1</a></li>
+                <li><a href="">item2</a></li>
+                <li><a href="">item3</a></li>
+                <li class="li-has-children">
+                    <a >Blog</a>
+                    <ul class="submenu">
+                        <li><a href="">item1</a></li>
+                        <li><a href="">item2</a></li>
+                        <li><a href="">item3</a></li>
+                        <li><a href="">item4</a></li>
+                    </ul>
+                </li>
+            </ul>
+          </li>
+          <li><a href="#">Yuzo</a></li>
+          <li><a href="#">Contac us</a></li>
+        </ul>
       </section>
 
       <section class="theme-content container">

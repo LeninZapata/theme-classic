@@ -45,33 +45,34 @@
 }
 
 .theme-header{
-  display: grid;
-  
-  grid-template-columns: 1fr var(--theme-space-xxl);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   background-color: var(--color-branding-background, transparent);
-  background-color: red;
-  border:2px solid red;
+  position: relative;
   .layout-header{
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
     @include breakpoint(tablet){
       grid-area: header;
+      align-items: flex-start;
     }
     &__text{
       display:none;
     }
   }
-  .layout-nav{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .layout-header__nav{
     @include breakpoint(tablet){
       grid-area: nav;
     }
   }
-  .button-togger{
-    grid-area: nav-button-togger;
+  .layout-header__toggler{
+
+    @include breakpoint(tablet){
+      grid-area: nav-button-togger;
+      display: none;
+    }
   }
   @include breakpoint(tablet){
     //grid-template-columns: var(--theme-space-xxxx) 1fr;

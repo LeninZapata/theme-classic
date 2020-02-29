@@ -174,7 +174,6 @@ footer #wp-calendar th,footer #wp-calendar  td, footer #wp-calendar table{
 .theme-content{
   .content{
     background-color: var(--theme-color-white);
-    background-color: blue;
     padding: var(--theme-space-md);
     .entry-header{
       @include spacing($attr: margin, $direction: b, $size: var(--theme-space-sm));
@@ -275,8 +274,8 @@ input[type="search"]:hover{
 /* = 15.5 Header */
 .theme-header{
   .layout-header{
-    height: calc( var(--theme-space-xxl) - 15px ) ;
-    @include spacing($direction: l, $size: var(--theme-space-lg));
+    //height: calc( var(--theme-space-xxl) - 15px ) ;
+    //@include spacing($direction: l, $size: var(--theme-space-lg));
     font-size: var(--theme-text-xl);
     a,h1{
       font-size: calc(var(--theme-text-xl) - 3px);
