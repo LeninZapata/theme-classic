@@ -1,0 +1,119 @@
+/*
+|--------------------------------------------------------------------------
+| = 8. WP Core
+|--------------------------------------------------------------------------
+*/
+/* ─── Images ──────── */
+.wp-caption-text {
+  display: block;
+}
+.aligncenter { display: block;  }
+.alignright { float: right; }
+.alignleft { float: left; }
+.floatleft { float: left; }
+.floatright { float: right; }
+img{
+  &.aligncenter,&.alignright,&.alignleft{
+    border: 1px solid #EEE;
+  }
+}
+.wp-caption {
+  border: 1px solid #ddd;
+  background-color: #f3f3f3;
+  -moz-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  max-width: 100%!important;
+  img {
+    border: 0 none;
+    max-width: 100%;
+  }
+}
+
+// ─── Gallery ────────
+.gallery{
+  .gallery-item{
+    position:relative;
+  }
+  .gallery-caption{
+    width: 100%;
+    border-bottom: 1px solid rgb(221, 221, 221);
+    min-height: 41px;
+  }
+  .gallery-icon img{
+    border-radius: 2px;
+    box-shadow: 0px 0px 1px #FFF;
+    border: 0!important;
+    max-width: 85%;
+    min-width: 25%;
+  }
+  .gallery-row {
+    clear: both;
+    display: block;
+    overflow: hidden;
+  }
+  a img {
+    border: none;
+  }
+}
+.gallery-columns-4{
+  .gallery-item {
+    width: 25%;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+// ─── Author Comments ────────
+.bypostauthor{
+  line-height: 1;
+  > .comment-body{
+    > .comment-meta{
+      > .comment-content{
+        border-left: var(--wp-space-unit) solid rgba(42, 100, 150, 0.50);
+      }
+    }
+  }
+}
+
+// ─── Calendar ────────
+footer{
+  #wp-calendar{
+    caption{
+      background: #252525;
+    }
+    th,
+    tbody tr,
+    tfoot{
+      background: transparent;
+    }
+    th, td, table{
+      border: 1px solid #3C3C3C;
+    }
+  }
+}
+
+// ─── Others ────────
+/* Text meant only for screen readers. */
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  white-space: nowrap;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  &:focus {
+    border-radius: 3px;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+    clip: auto !important;
+    display: block;
+    height: auto;
+    left: 5px;
+    top: 5px;
+    width: auto;
+    z-index: 100000; /* Above WP toolbar. */
+  }
+}

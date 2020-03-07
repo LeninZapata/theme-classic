@@ -1,12 +1,17 @@
 /*
-|--------------------------------------------------------------------------
-| = 0. Root Variables
-|--------------------------------------------------------------------------
-*/
+ *--------------------------------------------------------------------------
+ * = 0. Root Variables
+ *--------------------------------------------------------------------------
+ *
+ * Abstract Root Variables initial and global theme variables, based on these variables is that
+ * the different concepts and variations will be derivative.
+ *
+ */
 :root {
   /* ─── Fonts ──────── */
-  --theme-font-primary  : "Frank Ruhl Libre";
-  --theme-font-secondary: serif;
+  --theme-font-primary  : "Lora";
+  --theme-font-secondary: "Lato";
+  --theme-font-third: "Frank Ruhl Libre";
 
   /* ─── Text size ──────── */
   --theme-text-rem-initial: 10px; /* Reset default 1rem = 16px to a new unit (10px) */
@@ -15,7 +20,7 @@
 
   /* ─── Line height ──────── */
   --theme-heading-line-height: 1.2;
-  --theme-body-line-height   : 1.5;
+  --theme-body-line-height : 1.5;
 
   /* ─── Spacing ──────── */
   --theme-space-unit : var(--theme-text-base-size);
@@ -26,6 +31,7 @@
   --theme-space-x    : calc(0.6 * var(--theme-space-unit));    // ~0,96 rem
   --theme-space-sm   : calc(0.75 * var(--theme-space-unit));   // ~1,2 rem
   --theme-space-md   : calc(1.25 * var(--theme-space-unit));   // ~2 rem
+  --theme-space-ml   : calc(1.50 * var(--theme-space-unit));   // ~2,4 rem
   --theme-space-lg   : calc(2 * var(--theme-space-unit));      // ~3,2 rem
   --theme-space-xl   : calc(3.25 * var(--theme-space-unit));   // ~5,2 rem
   --theme-space-xxl  : calc(5.25 * var(--theme-space-unit));   // ~8,4 rem
@@ -36,6 +42,7 @@
   --theme-text-xs  : calc( var(--theme-text-base-size) / var(--theme-text-scale-ratio) / var(--theme-text-scale-ratio)  );
   --theme-text-sm  : calc( var(--theme-text-base-size) / var(--theme-text-scale-ratio) );
   --theme-text-md  : calc( var(--theme-text-sm) * var(--theme-text-scale-ratio) );
+  --theme-text-ml  : calc( var(--theme-text-md) * var(--theme-text-scale-ratio) );
   --theme-text-lg  : calc( var(--theme-text-md) * var(--theme-text-scale-ratio) );
   --theme-text-xl  : calc( var(--theme-text-lg) * var(--theme-text-scale-ratio) );
   --theme-text-xxl : calc( var(--theme-text-xl) * var(--theme-text-scale-ratio) );
@@ -53,7 +60,8 @@
   --theme-color-border   : #d1d0d2;
 
   --theme-color-text         : #2D3748;
-  --theme-color-text-other   : #718096;
+  --theme-color-text-alt     : #718096;
+  --theme-color-text-alt2    : #CBD5E0;
   --theme-color-text-headings: #2D3748;
 
   --theme-color-white  : hsl(0, 0%, 100%);
@@ -70,19 +78,24 @@
   --theme-color-link        : var(--theme-color-primary);
   --theme-color-link-visited: var(--theme-color-primary-dark);
 
-  --theme-black-bis   : hsl(0, 0%, 7%);
-  --theme-black-ter   : hsl(0, 0%, 14%);
-  --theme-grey-darker : hsl(0, 0%, 21%);
-  --theme-grey-dark   : hsl(0, 0%, 29%);
-  --theme-grey-light  : hsl(0, 0%, 71%);
-  --theme-grey-lighter: hsl(0, 0%, 86%);
-  --theme-white-ter   : hsl(0, 0%, 96%);
-  --theme-white-bis   : hsl(0, 0%, 98%);
+  --theme-color-sidebar-footer-heading: hsl(218, 23%, 23%);
+  --theme-color-sidebar-footer-text: hsl(218, 17%, 35%);
+  --theme-color-footer-background: hsl(208, 16%, 16%);
+
+  --theme-color-black-bis   : hsl(0, 0%, 7%);
+  --theme-color-black-ter   : hsl(0, 0%, 14%);
+  --theme-color-grey-darker : hsl(0, 0%, 21%);
+  --theme-color-grey-dark   : hsl(0, 0%, 29%);
+  --theme-color-grey-light  : hsl(0, 0%, 71%);
+  --theme-color-grey-lighter: hsl(0, 0%, 86%);
+  --theme-color-white-ter   : hsl(0, 0%, 96%);
+  --theme-color-white-bis   : hsl(0, 0%, 98%);
+  --theme-color-white-bit   : hsl(0, 0%, 99%);
 
   /* ─── Visibility ──────── */
   --theme-display: block;
 
-  /* ─── z-index ──────── */
+  /* ─── z-Index ──────── */
   --theme-zindex-header       : 2;
   --theme-zindex-popover      : 5;   // e.g., tooltips and dropdown
   --theme-zindex-fixed-element: 10;  // e.g., 'back to top' button
@@ -104,7 +117,9 @@
   --theme-max-width-xxxs : 41.6rem;   // ~416px
   --theme-max-width-xxs  : 51.2rem;   // ~512px
   --theme-max-width-xs   : 60.8rem;   // ~608px
+  --theme-max-width-s    : 64rem;     // ~640px
   --theme-max-width-sm   : 76.8rem;   // ~768px
+  --theme-max-width-ms   : 90rem;     // ~900px
   --theme-max-width-md   : 102.4rem;  // ~1024px
   --theme-max-width-lg   : 128rem;    // ~1280px
   --theme-max-width-xl   : 144rem;    // ~1440px
@@ -124,10 +139,137 @@
   --theme-shadow-lg: 0 1px 8px rgba(0, 0, 0, .085), 0 16px 48px rgba(0, 0, 0, .085), 0 24px 60px rgba(0, 0, 0, .085); // high depth
   --theme-shadow-xl: 0 1px 8px rgba(0, 0, 0, .085), 0 16px 64px rgba(0, 0, 0, .15), 0 24px 100px rgba(0, 0, 0, .15); // higher depth
 
+  // ─── Images ────────
+  --theme-image-default-filter: grayscale(0%);
+
   /* ─── Timing functions ──────── */
   // credits: https://github.com/ai/easings.net
   --theme-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   --theme-ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
   --theme-ease-in: cubic-bezier(0.55, 0.055, 0.675, 0.19);
   --theme-ease-out: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+/*
+|--------------------------------------------------------------------------
+| Concept: WP Theme
+|--------------------------------------------------------------------------
+*/
+html.wp{
+  /* ─── WP GLOBAL - Line Height ──────── */
+  --wp-body-line-height: var(--theme-body-line-height);
+
+  /* ─── WP GLOBAL - Fonts Family ──────── */
+  --wp-font-primary  : var(--theme-font-primary);
+  --wp-font-secondary: var(--theme-font-secondary);
+
+  /* ─── WP GLOBAL - Fonts Sizes ──────── */
+  --wp-text-base  :  calc( var(--theme-text-md) + 2px );
+  --wp-text-xs    : var(--theme-text-xs);
+  --wp-text-sm    : var(--theme-text-sm);
+  --wp-text-md    : var(--theme-text-md);
+  --wp-text-ml    : var(--theme-text-ml);
+  --wp-text-lg    : var(--theme-text-lg);
+  --wp-text-xl    : var(--theme-text-xl);
+  --wp-text-xxl   : var(--theme-text-xxl);
+  --wp-text-xxxl  : var(--theme-text-xxxl);
+  --wp-text-xxxxl : var(--theme-text-xxxxl);
+  --wp-text-xxxxxl: var(--theme-text-xxxxxl);
+
+  /* ─── WP GLOBAL - Other Font Size ──────── */
+  --wp-text-xs : var(--theme-text-xs);
+  --wp-text-sm : var(--theme-text-sm);
+  --wp-text-xxxxxl: var(--theme-text-xxxxxl);
+
+  /* ─── WP GLOBAL - Spacing ──────── */
+  --wp-space-unit : var(--theme-space-unit);   // ~0,2 rem
+  --wp-space-xxxs : var(--theme-space-xxxs);   // ~0,4 rem
+  --wp-space-xxs  : var(--theme-space-xxs);    // ~0,6 rem
+  --wp-space-xs   : var(--theme-space-xs);     // ~0,8 rem
+  --wp-space-x    : var(--theme-space-x);      // ~0,96 rem
+  --wp-space-sm   : var(--theme-space-sm);     // ~1,2 rem
+  --wp-space-md   : var(--theme-space-md);     // ~2 rem
+  --wp-space-ml   : var(--theme-space-ml);     // ~2,4 rem
+  --wp-space-lg   : var(--theme-space-lg);     // ~3,2 rem
+  --wp-space-xl   : var(--theme-space-xl);     // ~5,2 rem
+  --wp-space-xxl  : var(--theme-space-xxl);    // ~8,4 rem
+  --wp-space-xxxl : var(--theme-space-xxxl);   // ~13,6 rem
+  --wp-space-xxxxl: var(--theme-space-xxxxl);  // ~22 rem
+
+  /* ─── WP GLOBAL - WIDTHS ──────── */
+  --wp-max-width-xxxxs: var(--theme-max-width-xxxxs);    // ~320px
+  --wp-max-width-xxxs : var(--theme-max-width-xxxs);   // ~416px
+  --wp-max-width-xxs  : var(--theme-max-width-xxs);   // ~512px
+  --wp-max-width-xs   : var(--theme-max-width-xs);   // ~608px
+  --wp-max-width-s    : var(--theme-max-width-s);    // ~640px
+  --wp-max-width-sm   : var(--theme-max-width-sm);   // ~768px
+  --wp-max-width-ms   : var(--theme-max-width-ms);    // ~900px
+  --wp-max-width-md   : var(--theme-max-width-md);  // ~1024px
+  --wp-max-width-lg   : var(--theme-max-width-lg);   // ~1280px
+  --wp-max-width-xl   : var(--theme-max-width-xl);   // ~1440px
+  --wp-max-width-xxl  : var(--theme-max-width-xxl);   // ~1600px
+  --wp-max-width-xxxl : var(--theme-max-width-xxxl);   // ~1920px
+  --wp-max-width-xxxxl: var(--theme-max-width-xxxxl);   // ~2400px
+
+
+
+  /* ─── WP CLASSES ──────── */
+  // Now we go to simplify everything right in the parts of Wordpress
+  // in this way the change is reduced and confusion is avoided.
+  // ─── Width & Height ────────
+  --wp-width-author-box-avatar: var(--theme-space-xxl);
+  --wp-width-author-box-avatar-img: var(--theme-space-xxl);
+  --wp-width-entry-max: var(--theme-max-width-s);
+  --wp-max-width-container:var(--theme-max-width-md);
+  --wp-max-width-theme:var(--theme-max-width-ms);
+  // ─── Colors ────────
+  --wp-primary-color: var(--theme-color-primary);
+  --wp-body-text-color: var(--theme-color-text);
+  --wp-body-text-color-alt: var(--theme-color-text-alt) ;
+  --wp-body-text-color-alt2: var(--theme-color-text-alt2);
+  --wp-heading-color: var(--theme-color-text-headings);
+  --wp-button-color: transparent;
+  --wp-button-color-readmore-hover: var(--theme-color-white-bit);
+  --wp-button-color-readmore: var(--theme-color-black-ter);
+  --wp-entry-meta-color: var(--theme-color-text-alt);
+  --wp-sidebar-background: var(--theme-color-white-ter);
+  --wp-widget-background: var(--theme-color-grey-light);
+  --wp-widget-title-background: var(--theme-color-grey-lighter);
+  --wp-footer-background: var(--theme-color-white-bit);
+  --wp-footer-widget-title-color: var(--theme-color-sidebar-footer-heading);
+  --wp-footer-color: var(--theme-color-sidebar-footer-text);
+  --wp-comment-meta-author-link: var(--theme-color-black-ter);
+  --wp-comment-meta-date-link: var(--theme-color-link);
+  --wp-form-border-input: var(--theme-color-grey-dark);
+  /* ─── Fonts ──────── */
+  --wp-body-font: var(--wp-font-primary);
+  --wp-body-font2: var(--wp-font-secondary);
+  --wp-body-font-size: var(--wp-text-base);
+  --wp-tags-font-size: calc(var(--wp-text-md) + 2px);
+  --wp-tags-line-height: calc( var(--wp-space-lg) );
+  --wp-heading-h1: var(--wp-text-xxxxl);
+  --wp-heading-h2: var(--wp-text-xxxl);
+  --wp-heading-h3: var(--wp-text-xxl);
+  --wp-heading-h4: var(--wp-text-xl);
+  --wp-heading-h5: var(--wp-text-lg);
+  --wp-heading-h6: var(--wp-text-md);
+  --wp-heading-font: var(--theme-font-third);
+  --wp-heading-line-height: calc( var(--theme-heading-line-height) + 3px );
+  --wp-post-title-line-height: calc( var(--wp-text-xxxxxl) + 8px);
+  --wp-post-font-meta: calc( var(--wp-text-sm) + 1px);
+  --wp-form-button-text-size: var(--wp-text-md);
+  /* ─── Image  ──────── */
+  --wp-post-featured-image-max-width: var(--theme-max-width-md);
+  --wp-post-featured-box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);
+  --wp-image-filter: var(--theme-image-default-filter);
+
+  --wp-post-font-size: var(--wp-text-base);
+  --wp-post-image-box-shadow: var(--wp-post-featured-box-shadow);
+
+  // ─── Spaces ────────
+  --wp-form-input-padding-all: var(--theme-space-x);
+  --wp-post-image-margin-align-right-left: var( --wp-space-sm );
+  --wp-post-image-margin-align-right-botton: var( --wp-space-sm );
+  --wp-post-image-margin-align-left-right: var( --wp-space-sm );
+  --wp-post-image-margin-align-left-botton: var( --wp-space-sm );
 }

@@ -1,29 +1,417 @@
 /*
 |.------------------------------------------------------------------
-| = 5. Spacing
+| = 6. Spacing
 |--------------------------------------------------------------------------
 */
-$sizes: (
-  xxxxs: --space-xxxxs,
-  xxxs: --space-xxxs,
-  xxs: --space-xxs,
-  xs: --space-xs,
-  sm: --space-sm,
-  md: --space-md,
-  lg: --space-lg,
-  xl: --space-xl,
-  xxl: --space-xxl,
-  xxxl: --space-xxxl,
-  xxxxl: --space-xxxxl
-);
-
-@each $name, $value in $sizes {
-  .padding-#{$name} {
-    padding: #{$value};
+/* ─── Reset ──────── */
+textarea, input[type="text"],input[type="password"],input[type="number"],
+input[type="search"]{
+  @include spacing( $size: var(--wp-form-input-padding-all) );
+}
+legend {
+  @include spacing($attr: margin, $direction: b, $size: var(--wp-space-xxs));
+}
+p,ul,ol,blockquote{
+  @include spacing($attr: margin, $direction: b, $size: var(--wp-space-lg));
+}
+ul, ol {
+  margin: 0 0 var(--wp-space-md) calc( var(--wp-space-lg) + var(--wp-space-xs) );
+  li{
+    @include spacing($attr: margin, $direction: b, $size: var(--wp-space-xxs));
   }
 }
-@each $name, $value in $sizes {
-  .margin-#{$name} {
-    margin: #{$value};
+blockquote{
+  @include spacing_inline( $attr: margin, $top: var(--wp-space-md), $right:0, $bottom:0 );
+  @include spacing( $direction: x, $size: var(--wp-space-lg) );
+}
+// Heading
+h1,h2,h3,h4,h5,h6{
+  @include spacing( $attr: margin, $direction: b, $size: var(--wp-space-sm) );
+  //@include spacing_inline( $top: var(--wp-space-ml), $right:0, $bottom: var(--wp-space-xxs) );
+}
+code{
+  padding: .125em .25em;
+}
+// for better interpretation of paragraphs ────────
+:first-child, h1+*, h2+*, h3+*, h4+*, h5+*, h6+* {
+  @include spacing($attr: margin, $direction: t, $size: 0);
+  @include spacing($direction: t, $size: 0);
+}
+
+/* ─── Form ──────── */
+.button, input[type="submit"]{
+  @include spacing( $direction: db, $size: calc( var(--wp-space-md) + 0px ) , $size2: var(--wp-space-lg) );
+}
+// btn with icon (only)
+.button--icon { @include spacing($direction: all, $size: var(--wp-space-xxs)); }
+form {
+  >p{
+    @include spacing_inline($top:0,$bottom:var(--wp-space-sm), $attr: margin);
+  }
+}
+.radio-list, .checkbox-list { // e.g., .radio-list > li > input + label
+  input {
+    @include spacing( $direction: r, $attr: margin, $size: var(--wp-space-xxxs));
+  }
+}
+.form__msg-error, .form-error-msg { // .form__msg-error is fallback for older framework versions
+  @include spacing($attr: margin, $direction: t, $size: var(--wp-space-xxs));
+}
+
+/* ─── WP Core ──────── */
+@include breakpoint(tablet){
+  .aligncenter { @include spacing($attr: margin, $direction: double,  $size: 0, $size2: auto); }
+  .alignright { @include spacing_inline( $attr: margin, $top: 0, $right: 0, $bottom: var(--wp-post-image-margin-align-right-botton), $left: var(--wp-post-image-margin-align-right-left) ); }
+  .alignleft { @include spacing_inline( $attr: margin, $top: 0, $right: var(--wp-post-image-margin-align-left-right), $bottom: var(--wp-post-image-margin-align-left-botton), $left: 0 ); }
+}
+.wp-caption {
+  @include spacing($size: var(--wp-space-xxxs));
+  @include spacing($attr: margin, $size: var(--wp-space-x));
+  img{
+    @include spacing($size: 0);
+    @include spacing($attr: margin, $size: 0);
+  }
+  p.wp-caption-text {
+    @include spacing_inline($top: 0,$right: var(--wp-space-xxxs),$bottom: var(--wp-space-xxs),$left: 0 );
+    @include spacing($attr: margin, $size: 0);
+  }
+}
+.gallery{
+  .gallery-icon img{
+    @include spacing($direction: all, $size: var(--wp-space-xxs));
+  }
+  .gallery-row {
+    @include spacing($direction: b, $size: var(--wp-space-lg));
+    @include spacing($attr: margin, $size: 0);
+  }
+}
+.bypostauthor{
+  > .comment-body{
+    > .comment-meta{
+      > .comment-content{
+        @include spacing($direction: l, $size: var(--wp-space-x));
+      }
+    }
+  }
+  .commentmetadata,
+  li[class*="comment-author-"] .commentmetadata,
+  li[class^="comment-author-"] .commentmetadata2{
+    @include spacing($attr: margin, $direction: t, $size: var(--wp-space-xxs));
+  }
+}
+#wp-calendar{
+  @include spacing($attr: margin, $size: 0);
+  caption{
+    @include spacing($attr: margin, $size: 0);
+    @include spacing($size: 0);
+  }
+}
+.wp-caption-text {
+  @include spacing($attr: margin, $direction: t, $size: var(--wp-space-sm));
+  @include spacing( $direction: x, $size: var(--wp-space-lg) );
+}
+a.more-link{
+  @include spacing($direction: all, $size: var(--wp-space-xxxs));
+}
+.searchform {
+  input{
+    @include spacing($attr: margin, $direction: all, $size: var(--wp-space-xxs), $size2: 0);
+  }
+}
+.wp-smiley{
+  @include spacing($attr: margin, $size: 0);
+}
+/* Text meant only for screen readers. */
+.screen-reader-text {
+  &:focus {
+    @include spacing_inline($top: calc( var(--wp-space-sm) + 3px ),$right: var(--wp-space-ml) ,$bottom: calc( var(--wp-space-sm) + 2px) );
+  }
+}
+
+/* ─── WP Styles ──────── */
+// Content: Entry & Sidebar
+.container{
+  @include spacing($attr: margin, $direction: x, $size: auto);
+}
+.theme-layout{
+  @include spacing( $direction: t, $size: 0 );
+  @include breakpoint(tablet){
+    @include spacing($size: 0);
+  }
+}
+.theme-content{
+  .content{
+    .entry-header{
+      @include spacing( $direction: x, $size: var(--wp-space-lg) );
+      @include spacing($attr: margin, $direction: b, $size: var(--wp-space-ml));
+      h1{
+        @include spacing($direction: all, $size: 0);
+        @include spacing($attr: margin, $direction: all, $size: 0);
+      }
+    }
+    .entry-meta{
+      @include spacing( $direction: x, $size: var(--wp-space-lg) );
+      @include spacing($attr: margin, $direction: b, $size: var(--wp-space-lg));
+      .entry-meta__separate{
+        @include spacing($attr: margin, $direction: x, $size: var(--wp-space-xxs));
+      }
+    }
+    .entry-featured-image{
+      @include spacing($attr: margin, $direction: t, $size: var(--wp-space-sm));
+      @include spacing($attr: margin, $direction: b, $size: var(--wp-space-sm));
+    }
+    .entry-content{
+      @include spacing( $direction: x, $size: var(--wp-space-lg) );
+      @include breakpoint(tablet){
+        p,blockquote,ul,ol,dl{
+          @include spacing_inline( $attr: margin ,$top: var(--wp-space-lg), $left: auto, $right: auto, $bottom: var(--wp-space-lg) );
+        }
+        h1,h2,h3,h4,h5,h6{
+          @include spacing($attr: margin, $direction: x, $size: auto);
+        }
+        ul,ol,dl{
+          @include spacing($direction: x, $size: var(--wp-space-lg));
+        }
+      }
+      h1+*, h2+*, h3+*, h4+*, h5+*, h6+* {
+        @include spacing($attr: margin, $direction: t, $size: 0);
+        @include spacing($direction: t, $size: 0);
+      }
+      img{
+        @include spacing($attr: margin, $direction: b, $size: var(--wp-space-sm));
+      }
+    }
+    @include breakpoint(tablet){
+      @include spacing($attr: margin, $direction: b, $size: var(--wp-space-lg));
+    }
+  }
+  .sidebar{
+    .widget{
+      margin: var(--wp-space-sm);
+      .widget-title{
+          @include spacing($direction:x,$size: var(--wp-space-sm));
+      }
+      .widget-content{
+        @include spacing( $size: var(--wp-space-sm) );
+      }
+    }
+  }
+}
+// Singular
+.singular{
+  .theme-content{
+    .content{
+      .entry-content{
+        > p:first-child:first-letter{
+          @include spacing($attr: margin, $direction: r, $size: var(--wp-space-sm) );
+          @include spacing($attr: margin, $direction: b, $size: 0 );
+        }
+      }
+    }
+  }
+}
+// Home
+.homepage{
+  .theme-content{
+    @include spacing( $direction: x, $size: var(--wp-space-lg) );
+    .content{
+      > article.post{
+        .entry-header{
+          @include spacing( $size: 0 );
+          @include spacing( $size: 0, $attr: margin );
+          h2{
+            @include spacing( $size: 0 );
+            @include spacing( $size: 0, $attr: margin );
+            @include spacing( $size: var(--wp-space-md), $attr: margin, $direction: t );
+          }
+        }
+        .entry-featured-image{
+          @include spacing($attr: margin, $direction: t, $size: 0);
+          @include spacing($attr: margin, $direction: b, $size: 0);
+        }
+        .entry-meta{
+          @include spacing( $size: 0 );
+          @include spacing( $size: 0, $attr: margin );
+        }
+        .entry-content{
+          @include spacing($direction: t, $size: calc( var(--wp-space-sm) + 3px), $attr: margin);
+          @include spacing($direction: all, $size: 0);
+          > p{
+            @include spacing( $size: 0 );
+            @include spacing( $size: 0, $attr: margin );
+          }
+        }
+      }
+    }
+    .content{
+      article.post.post__featured{
+        @include spacing($size: calc( var(--wp-space-lg) ));
+        .entry-meta,.entry-content{
+          max-width: var(--wp-max-width-s);
+        }
+        .entry-meta{
+          @include spacing($direction: t, $size: calc( var(--wp-space-sm) + 3px), $attr: margin);
+        }
+      }
+    }
+  }
+}
+// Footer
+.theme-footer{
+  ul, ol{
+    @include spacing( $direction: l, $size: var(--wp-space-md) );
+    @include spacing( $direction: l, $attr: margin, $size: var(--wp-space-sm)  );
+  }
+  .footer__sidebar{
+    @include spacing( $direction: y, $size: var(--wp-space-lg));
+    @include spacing( $direction: x, $size: var(--wp-space-lg));
+    @include breakpoint(desktop){
+      @include spacing( $direction: x, $size: 0);
+    }
+    .widget{
+      .widget-content,.widget__content{
+        @include spacing($direction: b, $size: var(--wp-space-sm));
+      }
+    }
+    &.footer-1,&.footer-3,&.footer-2{
+      @include spacing($attr: margin, $direction: x, $size: auto);
+    }
+  }
+  .footer__bar{
+    //@include spacing($direction: doble, $size: var(--wp-space-md), $size2: var(--wp-space-xl));
+    @include spacing($direction: y, $size: var(--wp-space-xl ));
+    @include spacing( $direction: x, $size: var(--wp-space-lg));
+    ol, ul{
+      @include spacing($attr: margin, $size: 0);
+      @include spacing($size: 0);
+      li{
+        @include spacing($attr: margin, $direction: r, $size: var(--wp-space-sm));
+        @include breakpoint(tablet){
+          @include spacing($attr: margin, $direction: r, $size: var(--wp-space-md));
+        }
+      }
+    }
+    ul, ol, p{
+      @include spacing($attr: margin, $direction: b, $size: 0);
+      @include spacing($attr: margin, $direction: t, $size: var(--wp-space-sm));
+    }
+  }
+}
+
+/* ─── Components ──────── */
+// Author Box
+.theme-content{
+  .author-box{
+    @include spacing( $direction: ud, $size: var(--wp-space-lg) );
+    @include spacing( $direction: x, $size: var(--wp-space-lg) );
+    .author-box__avatar{
+      @include spacing($direction: r, $size: var(--wp-space-x));
+    }
+    @include breakpoint(tablet){
+      @include spacing( $direction: x, $size: 0 );
+      @include spacing($attr: margin, $direction: db, $size: 0, $size2: auto);
+  }
+  }
+}
+// Post Nav
+.theme-content{
+  .posts-nav{
+    @include spacing( $direction: x, $size: var(--wp-space-lg) );
+    @include spacing( $direction: y, $size: var(--wp-space-lg) );
+    @include breakpoint(tablet){
+      @include spacing($attr: margin, $direction: db, $size: 0, $size2: auto);
+      @include spacing( $direction: x, $size: 0 );
+    }
+    .post-nav{
+      @include spacing($attr: margin, $direction: b, $size: var(--wp-space-md));
+      &:last-child{
+        @include spacing($attr: margin, $direction: b, $size: 0);
+      }
+    }
+    a{
+      img{
+        @include spacing($attr: margin, $direction: r, $size: var(--wp-space-sm));
+      }
+    }
+    .post-nav__next{
+      img{
+        @include spacing($attr: margin, $direction: l, $size: var(--wp-space-sm));
+      }
+    }
+  }
+}
+// Comments
+.theme-comments{
+  @include spacing( $direction: x, $size: var(--wp-space-lg) );
+  .comment-title{
+    @include spacing($attr: margin, $direction: t, $size: var(--wp-space-lg));
+    @include spacing($attr: margin, $direction: b, $size: 0);
+    @include spacing($direction: all, $size: 0);
+  }
+  .theme-comment-data{
+    @include spacing($attr: margin, $direction: b, $size: var(--wp-space-sm));
+    @include spacing( $direction: b, $size: var(--wp-space-sm));
+    .theme-comment-gravatar{
+      @include spacing($attr: margin, $direction: r, $size: var(--wp-space-md));
+    }
+  }
+  .theme-comment-meta-links{
+    &--separate{
+        @include spacing($attr: margin, $direction: sides, $size: var(--wp-space-xxs));
+    }
+  }
+  .theme-comment-list{
+    @include spacing($direction: y, $size: var(--wp-space-lg));
+    @include spacing( $attr: margin, $direction: x, $size: 0);
+    li.comment{
+      @include spacing($direction: b, $size: var(--wp-space-lg));
+      @include spacing($direction: x, $size: 0);
+      &:last-child{
+        @include spacing($direction: b, $size: 0);
+      }
+      .theme-comment-content{
+        p{
+          @include spacing($attr: margin, $direction: t, $size: var(--wp-space-lg));
+          &:first-child{
+            @include spacing($attr: margin, $direction: t, $size: 0);
+          }
+        }
+      }
+      .children{
+        @include spacing( $attr: margin, $direction: x, $size: 0);
+        @include spacing( $direction: left, $size: var(--wp-space-lg) );
+        @include spacing( $attr: margin, $direction: top, $size: var(--wp-space-lg) );
+      }
+      :last-child{
+        @include spacing( $attr: margin, $direction: b, $size: 0);
+      }
+    }
+    @include breakpoint(tablet){
+      > li.comment{
+        @include spacing($size: var(--wp-space-lg));
+        @include spacing($attr: margin, $direction: b, $size: var(--wp-space-lg));
+        &:last-child{
+          @include spacing( $direction: b, $size: var(--wp-space-lg));
+        }
+      }
+    }
+  }
+  .comment-respond{
+    @include spacing($direction: y, $size: var(--wp-space-lg));
+    @include breakpoint(tablet){
+        @include spacing($size: var(--wp-space-lg));
+    }
+    .comment-form-comment{
+      @include spacing( $direction: t, $size: var(--wp-space-sm) )
+    }
+    > form{
+      @include breakpoint(tablet){
+        > p{
+          &.comment-form-author{
+              @include spacing($direction: r, $size: var(--wp-space-lg));
+          }
+        }
+      }
+    }
   }
 }

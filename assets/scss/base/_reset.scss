@@ -31,29 +31,18 @@ time, mark, audio, video {
   padding: 0;
   border: 0;
   vertical-align: baseline;
-  font-size: var(--theme-text-base-size);
 }
 // HTML5 display-role reset for older browsers
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
 }
-body {
-  line-height: var(--theme-body-line-height);
-}
-ol, ul {
-  list-style: none;
+ul, ol {
+  list-style-type: disc;
 }
 blockquote{
-  line-height: var(--theme-body-line-height);
-  color      : var(--theme-grey-dark);
-  @include spacing_inline( $attr: margin, $top: var(--theme-space-md), $right:0, $bottom:0 );
-  @include spacing( $direction: x, $size: var(--theme-space-md) );
-
   display   : block;
-  font-style: italic;
   box-sizing: border-box;
-  font-style: italic;
 }
 blockquote, q {
   quotes: none;
@@ -70,13 +59,11 @@ table {
 img {
   max-width: 100%;
   height: auto;
-  vertical-align: bottom;
   display: block;
 }
 iframe{
   max-width: 100%;
-  /* height: auto; */
 }
-code, pre {
-  font-family: Source Code Pro,Monaco,Consolas,Andale Mono WT,Andale Mono,Lucida Console,Lucida Sans Typewriter,DejaVu Sans Mono,Bitstream Vera Sans Mono,Liberation Mono,Nimbus Mono L,Courier New,Courier,monospace;
+code {
+  border-radius: 3px;
 }

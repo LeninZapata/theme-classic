@@ -1,3 +1,26 @@
+$breakpoints: (
+  mobile       : 250px,
+  mobile-lands : 512px,
+  tablet       : 768px,
+  tablet-lands : 1024px,
+  desktop      : 1280px,
+  desktop-lands: 1440px
+) !default;
+
+@mixin breakpoint($breakpoint, $logic: false, $based: 16) {
+  $break: map-get($map: $breakpoints, $key: $breakpoint);
+  $cal: _return_rem($break, $based);
+  @if( $logic ) {
+    /* #{$logic} #{$break} = #{$cal} based in base #{$based}px */
+    @media #{$logic} and (min-width: $cal) { @content; }
+  } @else {
+    @media (min-width: $cal) {
+      /* min-width #{$break} = #{$cal} based in base #{$based}px */
+      @content;
+    }
+  }
+}
+
 @mixin rem($property, $values) {
   $px: ();
   $rem: ();
@@ -33,38 +56,36 @@
   }
 }
 
-/**
-In generating it is responsible for adding spaces for margin and padding
-it can be done from all possible addresses top, bottom, left, right.
-Also double direction as left-right and top-bottom combined and individual.
-The default attribute is padding, but this is editable.
-*/
+// In generating it is responsible for adding spaces for margin and padding
+// it can be done from all possible addresses top, bottom, left, right.
+// Also double direction as left-right and top-bottom combined and individual.
+// The default attribute is padding, but this is editable.
 @mixin spacing($attr: padding, $direction: all, $size: md, $size2: 0) {
   @if $direction == all {
-      @include spacer($attr, $size);
+    @include spacer($attr, $size);
   }
   @else if $direction == l or $direction == left {
-      @include spacer($attr + "-left", $size);
+    @include spacer($attr + "-left", $size);
   }
   @else if $direction == r or $direction == right {
-      @include spacer($attr + "-right", $size);
+    @include spacer($attr + "-right", $size);
   }
   @else if $direction == t or $direction == top {
-      @include spacer($attr + "-top", $size);
+    @include spacer($attr + "-top", $size);
   }
   @else if $direction == b or $direction == bottom {
-      @include spacer($attr + "-bottom", $size);
+    @include spacer($attr + "-bottom", $size);
   }
   @else if $direction == x  or $direction == sides {
-      @include spacer($attr + "-left", $size);
-      @include spacer($attr + "-right", $size);
+    @include spacer($attr + "-left", $size);
+    @include spacer($attr + "-right", $size);
   }
   @else if $direction == y  or $direction == ud {
-      @include spacer($attr + "-top", $size);
-      @include spacer($attr + "-bottom", $size);
+    @include spacer($attr + "-top", $size);
+    @include spacer($attr + "-bottom", $size);
   }
-  @else if $direction == d {
-    $attr: $size $size2;
+  @else if $direction == db or $direction == doble or $direction == double {
+    @include spacer($attr, $size + ' ' + $size2);
   }
 }
 
@@ -109,7 +130,7 @@ The default attribute is padding, but this is editable.
   @if map-has-key($spaces, $unit) {
     #{$attribute}: map-get($spaces, $unit);
   } @else{
-    #{$attribute}: $unit;
+    #{$attribute}: unquote($unit);
   }
 }
 
@@ -120,13 +141,13 @@ The default attribute is padding, but this is editable.
 }
 
 // crop top space on text elements - caused by line height
-@mixin lhCrop($line-height, $capital-letter: 1) {
+@mixin lhCrop($line-height, $capital-letter: 1, $value: 0.5em) {
   &::before {
     content: '';
     display: block;
     height: 0;
     width: 0;
-    margin-top: calc((#{$capital-letter} - #{$line-height}) * 0.5em);
+    margin-top: calc((#{$capital-letter} - #{$line-height}) * #{$value});
   }
 }
 
@@ -167,4 +188,16 @@ The default attribute is padding, but this is editable.
   --text-xxl: calc(var(--theme-text-xl) * #{$text-scale-ratio});
   --text-xxxl: calc(var(--theme-text-xxl) * #{$text-scale-ratio});
   font-size: $text-unit;
+}
+
+@mixin srHide {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+}
+
+@mixin srShow {
+  position: static;
+  clip: auto;
+  clip-path: none;
 }

@@ -1,48 +1,73 @@
 /*
 |--------------------------------------------------------------------------
-| = 3. Typography
+| = 2. Typography
 |--------------------------------------------------------------------------
 */
-// ─── text size ────────
+/* ─── Reset ──────── */
+body{
+  line-height: var(--wp-body-line-height);
+  font-family: var(--wp-body-font);
+  font-size: var(--wp-body-font-size);
+}
+p,li,ul,ol,blockquote,i,em,code,a{
+  font-size: var(--wp-tags-font-size);
+}
+blockquote{
+  font-style: italic;
+  //line-height: var(--wp-body-line-height);
+}
+a, .link {
+  text-decoration: underline;
+}
+strong {
+  font-weight: bold;
+}
+s {
+  text-decoration: line-through;
+}
+u, .text-underline {
+  text-decoration: underline;
+}
+form{
+  font-size: var(--wp-body-font);
+}
+code, pre {
+  font-family: Source Code Pro,Monaco,Consolas,Andale Mono WT,Andale Mono,Lucida Console,Lucida Sans Typewriter,DejaVu Sans Mono,Bitstream Vera Sans Mono,Liberation Mono,Nimbus Mono L,Courier New,Courier,monospace;
+}
+code{
+  font-size: .789em;
+  font-style: normal;
+}
+
+// ─── Heading ────────
 .text-xxxxxl {
-  font-size: var(--theme-text-xxxxxl, 2.488rem);
+  font-size: var(--wp-text-xxxxxl);
 }
-
 h1, .text-xxl {
-  font-size: var(--theme-text-xxxxl, 2.074rem);
+  font-size: var(--wp-heading-h1);
 }
-
 h2, .text-xl {
-  font-size: var(--theme-text-xxxl, 1.728rem);
+  font-size: var(--wp-heading-h2);
 }
-
 h3, .text-lg {
-  font-size: var(--theme-text-xxl, 1.44rem);
+  font-size: var(--wp-heading-h3);
 }
-
 h4, .text-md {
-  font-size: var(--theme-text-xl, 1.2rem);
+  font-size: var(--wp-heading-h4);
 }
-
 .text-base {
-  font-size: var(--theme-text-base-size);
-  line-height: var(--theme-body-line-height);
+  font-size: var(--wp-text-base-size);
+  line-height: var(--wp-body-line-height);
 }
-
 h5, small, .text-sm {
-  font-size: var(--theme-text-lg, 0.833rem);
+  font-size: var(--wp-heading-h5);
 }
-
 h6, .text-xs {
-  font-size: var(--theme-text-md, 0.694rem);
+  font-size: var(--wp-heading-h6);
 }
 h1, .text-xxl,h2, .text-xl,h3, .text-lg,h4, .text-md,.text-base,h5, small, .text-sm,h6, .text-xs{
-  line-height: var(--theme-heading-line-height);
-}
-
-// ─── Font family ────────
-h1,h2,h3,h4,h5,h6{
-  font-family: var(--theme-font-primary);
+  line-height: var(--wp-heading-line-height);
+  font-family: var(--wp-heading-font);
 }
 
 // ─── Responsive ────────
@@ -77,26 +102,380 @@ h1,h2,h3,h4,h5,h6{
   }
 }
 
-// ─── Font size ────────
-p,li,ul,ol,blockquote,i,em,code,a{
-  font-size: calc(var(--theme-text-md) + 2px);
-}
-
-// ─── inline text ────────
-a, .link {
+/* ─── Forms ──────── */
+button:focus,
+button:hover,
+input[type=button]:focus,
+input[type=button]:hover,
+input[type=reset]:focus,
+input[type=reset]:hover, input[type=submit]:focus,
+input[type=submit]:hover {
   text-decoration: underline;
 }
-strong {
-  font-weight: bold;
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="number"],
+input[type="search"],
+select{
+  font-size: var(--wp-body-font-size);
 }
-s {
-  text-decoration: line-through;
+legend {
+  line-height: 1.2;
+  font-size: var(--wp-text-md);
 }
-u, .text-underline {
-  text-decoration: underline;
+button, input, select, textarea {
+  font-family: var(--wp-body-font);
+}
+button, input[type=button], input[type=reset], input[type=submit]{
+  font-family: var(--wp-body-font2);
+}
+.radio-list, .checkbox-list { // e.g., .radio-list > li > input + label
+  label { // radio/checkbox labels
+    line-height: var(--wp-body-line-height);
+  }
+}
+// error message
+.form__msg-error, .form-error-msg { // .form__msg-error is fallback for older framework versions
+  font-size: var(--wp-text-sm);
+}
+.button, input[type="submit"], input[type="button"]{
+  font-size: var(--wp-form-button-text-size);
+  &:hover{
+    text-decoration: underline;
+  }
+}
+.button--sm { font-size: var(--btn-font-size-sm, 0.8rem); }
+.button--sm { font-size: var(--btn-font-size-md, 1.2rem); }
+.button--sm { font-size: var(--btn-font-size-lg, 1.4rem); }
+
+// ─── Utils ────────
+.icon {
+  line-height: 1;
+}
+// icon size
+.icon--xxxs { font-size: var(--theme-icon-xxxs); }
+.icon--xxs { font-size: var(--theme-icon-xxs); }
+.icon--xs  { font-size: var(--theme-icon-xs); }
+.icon--sm  { font-size: var(--theme-icon-sm); }
+.icon--md  { font-size: var(--theme-icon-md); }
+.icon--lg  { font-size: var(--theme-icon-lg); }
+.icon--xl  { font-size: var(--theme-icon-xl); }
+.icon--xxl { font-size: var(--theme-icon-xxl); }
+
+/* ─── WP Core ──────── */
+.wp-caption-text {
+  font-size: var(--wp-text-md);
+  line-height: var(--wp-body-line-height);
+  font-family: var(--wp-body-font2);
+  text-align: center;
+}
+.wp-caption {
+  text-align: center;
+  p.wp-caption-text {
+    font-size: var(--wp-text-md);
+    line-height: var(--wp-body-line-height);
+    font-family: var(--wp-body-font2);
+    text-align: center;
+  }
+}
+.gallery{
+  .gallery-caption{
+    text-align: center;
+  }
+}
+.bypostauthor{
+  line-height: 1;
+  > .comment-body{
+    > .comment-meta{
+      > .comment-content{
+        border-left: var(--wp-space-unit) solid rgba(42, 100, 150, 0.50);
+      }
+    }
+  }
+}
+#wp-calendar{
+  caption{
+    text-transform: capitalize;
+  }
+}
+.widget_calendar{
+  line-height: 1;
+  a{
+    font-weight: bold;
+    font-size: 1.0em;
+    text-decoration: underline;
+  }
+}
+/* Text meant only for screen readers. */
+.screen-reader-text {
+  &:focus {
+    font-size: 0.875rem;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: normal;
+    text-decoration: none;
+  }
 }
 
-// ─── Font family ────────
-body{
-  font-family: "Lora";
+
+/* ─── WP Styles ──────── */
+.theme-header{
+  .layout-header{
+    font-size: var(--wp-text-xl);
+    a,h1{
+      font-size: calc(var(--wp-text-xl) - 3px);
+      text-decoration: none;
+    }
+  }
+}
+
+/* ─── WP Styles ──────── */
+// Content
+.theme-content{
+  line-height: var(--wp-tags-line-height);
+  a{
+    text-decoration: none;
+  }
+  a:hover{
+    text-decoration: underline;
+  }
+  .content{
+    .entry-header{
+      text-align: center;
+      h1{
+        font-size: calc(var(--wp-heading-h1) + 4px);
+        font-weight: 400;
+        line-height: var(--wp-post-title-line-height);
+      }
+    }
+    .entry-meta{
+      text-align: center;
+      font-family: var(--wp-font-secondary);
+      a,time,span{
+        font-family: var(--wp-font-secondary);
+        font-size: var(--wp-text-md);
+      }
+      a{
+        text-decoration: underline;
+      }
+    }
+    .entry-featured-image{
+      @include breakpoint(tablet){
+        text-align: center;
+      }
+    }
+    .entry-content{
+      font-size: var(--wp-post-font-size);
+      p{
+        font-size: var(--wp-post-font-size);
+      }
+      h1,h2,h3,h4,h5,h6{
+        font-weight: 400;
+      }
+      /* @include breakpoint(tablet){
+        h1,h2,h3,h4,h5,h6{
+          font-weight: 400;
+        }
+      } */
+    }
+  }
+}
+// Singular
+.singular{
+  .theme-content{
+    .content{
+      .entry-content{
+        > p:first-child:first-letter{
+          font-size: 3.1em;
+          float: left;
+          line-height: 63px;
+          font-weight: 700;
+          text-transform: capitalize;
+        }
+      }
+    }
+  }
+}
+// Home
+.homepage{
+  .theme-content{
+    .content{
+      > article.post{
+        .entry-header{
+          text-align: left;
+          h2 a{
+            font-size: calc( var(--wp-body-font-size) + 2px);;
+            font-weight: 400;
+          }
+        }
+        .entry-meta{
+          text-align: left;
+          line-height: 1.3;
+          span,a,time{
+            font-size: var(--wp-post-font-meta); // calc( var(--wp-body-font-size) - 2px) ;
+          }
+        }
+        .entry-content{
+          font-size: calc( var(--wp-body-font-size) - 2px);
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 3; /* number of lines to show */
+          overflow: hidden;
+          p{
+            font-size: calc( var(--wp-body-font-size) - 2px);
+            line-height: calc( var(--wp-tags-line-height) - 4px );
+          }
+        }
+      }
+    }
+    .content{
+      article.post.post__featured{
+        text-shadow: 1px 1px 2px rgba(0,0,0,.5);
+        .post__block{
+          text-align: center;
+          .entry-header,.entry-header h2,.entry-meta, .entry-content,.entry-content p{
+            text-align: center;
+            @include spacing($direction:x,$attr:margin,$size: auto);
+          }
+          .entry-header h2 a{
+            font-size: calc( var(--wp-text-xxxl ) + 3px);
+            line-height: calc( var(--wp-text-xxxxxl ) - 2px);
+          }
+          .entry-meta{
+            font-size:  calc( var(--wp-body-font-size) - 3px);
+            a,time,span{
+              font-size:  calc( var(--wp-body-font-size) - 3px);
+            }
+          }
+          .entry-content{
+            font-size:  var( --wp-tags-font-size );
+            > p{
+              font-size:  var( --wp-tags-font-size );
+            }
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2; /* number of lines to show */
+            overflow: hidden;
+          }
+        }
+      }
+    }
+  }
+}
+// Footer
+.theme-footer{
+  .footer__sidebar{
+    .widget{
+      .widget-title,.widget__title{
+        font-size: var(--wp-text-lg);
+        font-family: var(--wp-body-font);
+        font-weight: 400;
+      }
+      .widget-content,.widget__content{
+        font-family: var(--wp-body-font2);
+        font-size: var(--wp-text-md);
+        a{
+          font-size: var(--wp-text-md);
+          font-family: var(--wp-body-font2);
+        }
+      }
+    }
+    &.footer-1 > div{
+      text-align: center;
+    }
+  }
+  .footer__bar{
+    text-align: center;
+    font-size: var(--wp-text-md);
+    p{
+      font-size: var(--wp-text-md);
+      font-family: var(--wp-body-font2);
+    }
+    ul, li, ol{
+      font-size: var(--wp-text-md);
+      font-family: var(--wp-body-font2);
+      a{
+        font-family: var(--wp-body-font2);
+        text-decoration: none;
+      }
+    }
+    ol, ul{
+      line-height: var(--wp-space-sm);
+      text-align: center;
+      li{
+        line-height: var(--wp-space-ml);
+      }
+    }
+  }
+}
+
+
+/* ─── Components ──────── */
+// Post Nav
+.theme-content{
+  .posts-nav{
+    font-size: 15px; // parent font [em inner]
+    .post-nav__prev,.post-nav__next{
+      .post-nav__prev--header{
+        text-transform: uppercase;
+      }
+      .post-nav__prev--title{
+        line-height: var(--wp-body-line-height);
+        font-size: .9em;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3; /* number of lines to show */
+        @include breakpoint(tablet){
+          font-size: 1em; // based on the font size of the father
+        }
+      }
+    }
+    a{
+      text-decoration: none;
+      line-height: 1;
+      font-size: em( var(--wp-text-base) );
+    }
+    .post-nav__next{
+      .post-nav__prev--header,.post-nav__prev--title{
+          text-align: right;
+      }
+    }
+  }
+}
+// Author Box
+.theme-content{
+  .author-box{
+    .author-box__meta{
+      .author-box__meta--header{
+        a{
+          @include lhCrop( $line-height: var(--wp-body-line-height), $value: 1em );
+          font-weight: 700;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+// Comments
+.theme-comments{
+  a{
+    font-size: 1.6rem;
+  }
+  h1,h2,h3,h4,h5,h6{
+    font-weight: 400;
+  }
+  .theme-comment-data{
+    .theme-comment-metas{
+      line-height: 1.3;
+      @include breakpoint(tablet){
+        line-height: 1.5;
+      }
+      .theme-comment-meta-author{
+        a{
+            font-weight: 700;
+            text-decoration: none;
+        }
+      }
+    }
+  }
 }

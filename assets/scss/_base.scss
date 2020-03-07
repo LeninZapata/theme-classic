@@ -6,26 +6,17 @@
 // Reset
 @import "base/reset";
 
-// Media
-@import "base/breakpoints";
-
 // Core
 @import "base/typography";
 @import "base/colors";
-@import "base/spacing";
-@import "base/visibility";
-@import "base/z-index";
-@import "base/accessibility";
-@import "base/menu";
+@import "base/forms";
 
 // Structure
-@import "base/forms";
-@import "base/buttons";
-@import "base/icons";
-@import "base/grid-layout";
+@import "base/layout";
+@import "base/spacing";
 
-// Others
+// & WP & Others
 @import "base/utils";
-@import "base/shared-styles";
-@import "base/wordpress";
+@import "base/wp-core";
+@import "base/wp-style";
 @import "base/components";

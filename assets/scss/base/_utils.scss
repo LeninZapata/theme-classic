@@ -1,6 +1,6 @@
 /*
 |.------------------------------------------------------------------
-| = 13. Utils
+| = 7. Utils
 |--------------------------------------------------------------------------
 */
 /* ─── Justify Content ──────── */
@@ -50,7 +50,7 @@
 .font-bold, .text-bold { font-weight: 700; }
 
 /* font family */
-.font-primary { font-family: var(--theme-font-primary); }
+.font-primary { font-family: var(--wp-font-primary); }
 
 /* text alignment */
 .text-center { text-align: center; }
@@ -101,4 +101,67 @@ $media-wrapper-aspect-ratios: (
   .media-wrapper--#{$aspect-ratio-x}\:#{$aspect-ratio-y} {
     padding-bottom: calc((#{$aspect-ratio-y} / #{$aspect-ratio-x}) * 100%);
   }
+}
+
+/* ─── Accessibility ──────── */
+.sr-only { // content made available only to screen readers
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  white-space: nowrap;
+}
+
+// ─── Icons ────────
+.icon {
+  // make sure to include the font-family declaration if you are using an icon font
+  font-family: 'fontName';
+}
+.icon {
+  display: inline-block;
+  color: inherit;
+  fill: currentColor;
+  height: 1em;
+  width: 1em;
+  flex-shrink: 0;
+  max-width: initial;
+}
+
+.icon--is-spinning { // rotate the icon infinitely
+  animation: icon-spin 1s infinite linear;
+}
+
+@keyframes icon-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// ─── Visibility ────────
+.is-visible {
+  display: var(--theme-display) !important;
+}
+.is-hidden {
+  display: none !important;
+}
+
+// ─── Z Index ────────
+.zindex-header{
+  z-index: var(--theme-zindex-header);
+}
+.zindex-popover{
+  z-index: var(--theme-zindex-popover);
+}
+.zindex-fixed-elemen{
+  z-index: var(--theme-zindex-fixed-element);
+}
+.zindex-overlay{
+  z-index: var(--theme-zindex-overlay);
 }
