@@ -43,14 +43,14 @@
         display: grid;
         grid-gap: var(--wp-space-lg);
         grid-template-columns: 1fr;
-        @include breakpoint(tablet){
+        @include breakpoint(mobile-big){
           grid-template-columns: 1fr 1fr;
         }
         @include breakpoint(tablet-lands){
           grid-template-columns: 1fr 1fr 1fr;
         }
         > article.post:first-child{
-          @include breakpoint(tablet){
+          @include breakpoint(mobile-big){
             grid-column: span 2;
           }
           display: grid;

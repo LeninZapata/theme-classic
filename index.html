@@ -13,7 +13,51 @@
     <div class="theme-layout homepage">
 
       <section class="theme-header container">
-
+        <nav class="theme-menu">
+          <section class="theme-menu__logo">
+            <h2>
+              <a href="#">Love of writing</a>
+              <span class="theme-menu__logo--separate"></span>
+              <span>Description website</span>
+            </h2>
+          </section>
+          <section class="theme-menu__menus">
+            <input type="checkbox" id="toggle" class="nav-bar__toggle">
+            <label for="toggle" class="theme-menu__togger">==</label>
+            <ul class="menu">
+              <li class="item"><a href="#">Menu #1</a></li>
+              <li class="item"><a href="#">Menu #2</a></li>
+              <li class="item"><a href="#">Menu #3</a></li>
+              <li class="item item-with-child">
+                <input type="checkbox" id="toggle-sub-1" class="nav-bar__toggle">
+                <label for="toggle-sub-1" class="theme-menu__togger--subitem"></label>
+                <a class="" href="#">Menu # 4</a>
+                <ul class="submenu">
+                  <li class="item"><a href="#">Menu #6</a></li>
+                  <li class="item"><a href="#">Menu #7</a></li>
+                  <li class="item  item-with-child">
+                    <input type="checkbox" id="toggle-sub-2" class="nav-bar__toggle">
+                    <label for="toggle-sub-2" class="theme-menu__togger--subitem"></label>
+                    <a class="" href="#">Menu # 8</a>
+                    <ul class="submenu">
+                      <li class="item"><a href="#">Menu #9</a></li>
+                      <li class="item"><a href="#">Menu #10</a></li>
+                      <li class="item"><a href="#">Menu #11</a></li>
+                      <li class="item"><a href="#">Menu #12</a></li>
+                      <li class="item"><a href="#">Menu #13</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="item item-mega">
+                <input type="checkbox" id="toggle-sub-3" class="nav-bar__toggle">
+                <label for="toggle-sub-3" class="theme-menu__togger--subitem"></label>
+                <a class="item-with-child" href="#">Menu # 5</a>
+                <div class="submenu container-mega"></div>
+              </li>
+            </ul>
+          </section>
+        </nav>
       </section>
 
       <section class="theme-content container">
@@ -24,7 +68,7 @@
                 <img src="assets/images/1.jpg" />
               </figure>-->
               <header class="entry-header">
-                <h2><a href="#">5.4 Beta 1 Ready for Testing and Feedback</a></h2>
+                <h2><a href="#">35.4 Beta 1 Ready for Testing and Feedback</a></h2>
               </header>
               <section class="entry-meta">
                 <span class="entry-meta__autor">
@@ -226,10 +270,6 @@
               </div>
             </div>
           </article>
-
-          <nav class="posts-nav">
-          </nav>
-
         </div>
 
 
@@ -249,6 +289,16 @@
         </aside>
 
       </section>
+
+      <nav class="pagination">
+        <ul class="pagination__items list-none inline-block m-0 p-0">
+          <li class="pagination__item pagination__item--current"><span class="pagination__anchor pagination__anchor--current block leading-none py-3 px-4 no-underline" aria-current="page">1</span></li>
+          <li class="pagination__item pagination__item--number"><a class="pagination__anchor pagination__anchor--link block leading-none py-3 px-4 no-underline" href="https://wptavern.com/page/2">2</a></li>
+          <li class="pagination__item pagination__item--dots"><span class="pagination__anchor pagination__anchor--dots block leading-none py-3 px-4 no-underline">…</span></li>
+          <li class="pagination__item pagination__item--number"><a class="pagination__anchor pagination__anchor--link block leading-none py-3 px-4 no-underline" href="https://wptavern.com/page/456">456</a></li>
+          <li class="pagination__item pagination__item--next"><a class="pagination__anchor pagination__anchor--link block leading-none py-3 px-4 no-underline" href="https://wptavern.com/page/2">Next →</a></li>
+        </ul>
+      </nav>
 
       <section class="theme-footer container">
         <div class="footer__sidebar footer-3">

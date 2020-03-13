@@ -242,6 +242,10 @@ a.more-link{
           }
         }
       }
+
+      @include breakpoint(tablet){
+        @include spacing($attr: margin, $direction: b, $size: 0);
+      }
     }
     .content{
       article.post.post__featured{
@@ -251,6 +255,11 @@ a.more-link{
         }
         .entry-meta{
           @include spacing($direction: t, $size: calc( var(--wp-space-sm) + 3px), $attr: margin);
+        }
+        .post__block{
+          .entry-header,.entry-header h2,.entry-meta, .entry-content,.entry-conte1nt p{
+            @include spacing($direction:x,$attr:margin,$size: auto);
+          }
         }
       }
     }

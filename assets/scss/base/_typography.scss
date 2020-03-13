@@ -336,7 +336,6 @@ button, input[type=button], input[type=reset], input[type=submit]{
           text-align: center;
           .entry-header,.entry-header h2,.entry-meta, .entry-content,.entry-content p{
             text-align: center;
-            @include spacing($direction:x,$attr:margin,$size: auto);
           }
           .entry-header h2 a{
             font-size: calc( var(--wp-text-xxxl ) + 3px);

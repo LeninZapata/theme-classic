@@ -1,0 +1,53 @@
+<html class="wp">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <link rel='stylesheet' id='tavern-font-css'  href='https://fonts.googleapis.com/css?family=Frank+Ruhl+Libre:400,400i,700|Lora:400,400i,700,700i|Lato:400,400i,700,700i&#038;subset=latin,latin-ext' type='text/css' media='all' />
+    <style>
+        html{
+        /* --layout-content:[sidebar] 300px [content] 1fr; */
+        }
+    </style>
+  </head>
+  <body class="bodyclass singular single">
+    <nav class="theme-menu">
+      <section class="theme-menu__logo">LOGO</section>
+      <section class="theme-menu__menus">
+        <input type="checkbox" id="toggle" class="nav-bar__toggle">
+        <label for="toggle" class="theme-menu__togger">==</label>
+        <ul class="menu">
+          <li class="item"><a href="#">Menu #1</a></li>
+          <li class="item"><a href="#">Menu #2</a></li>
+          <li class="item"><a href="#">Menu #3</a></li>
+          <li class="item item-with-child">
+            <input type="checkbox" id="toggle-sub-1" class="nav-bar__toggle">
+            <label for="toggle-sub-1" class="theme-menu__togger--subitem"></label>
+            <a class="" href="#">Menu # 4</a>
+            <ul class="submenu">
+              <li class="item"><a href="#">Menu #6</a></li>
+              <li class="item"><a href="#">Menu #7</a></li>
+              <li class="item  item-with-child">
+                <input type="checkbox" id="toggle-sub-2" class="nav-bar__toggle">
+                <label for="toggle-sub-2" class="theme-menu__togger--subitem"></label>
+                <a class="" href="#">Menu # 8</a>
+                <ul class="submenu">
+                  <li class="item"><a href="#">Menu #9</a></li>
+                  <li class="item"><a href="#">Menu #10</a></li>
+                  <li class="item"><a href="#">Menu #11</a></li>
+                  <li class="item"><a href="#">Menu #12</a></li>
+                  <li class="item"><a href="#">Menu #13</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="item item-mega">
+            <input type="checkbox" id="toggle-sub-3" class="nav-bar__toggle">
+            <label for="toggle-sub-3" class="theme-menu__togger--subitem"></label>
+            <a class="item-with-child" href="#">Menu # 5</a>
+            <div class="submenu container-mega"></div>
+          </li>
+        </ul>
+      </section>
+    </nav>
+  </body>
+</html>

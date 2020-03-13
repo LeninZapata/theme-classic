@@ -70,9 +70,9 @@
   --theme-color-dark   : hsl(0, 0%, 21%);
   --theme-color-blue   : hsl(217, 71%, 53%);
   --theme-color-turke  : hsl(204, 86%, 53%);
-  --theme-color-green  : hsl(141, 53%, 53%);
+  --theme-color-green  : hsl(141, 74%, 44%);
   --theme-color-yellow : hsl(48, 100%, 67%);
-  --theme-color-fuchsia: hsl(348,   100%, 61%);
+  --theme-color-fuchsia: hsl(348, 100%, 61%);
   --theme-color-red    : hsl(357, 74%, 40%);
 
   --theme-color-link        : var(--theme-color-primary);
@@ -86,6 +86,7 @@
   --theme-color-black-ter   : hsl(0, 0%, 14%);
   --theme-color-grey-darker : hsl(0, 0%, 21%);
   --theme-color-grey-dark   : hsl(0, 0%, 29%);
+  --theme-color-grey-dark2  : hsl(0, 0%, 50%);
   --theme-color-grey-light  : hsl(0, 0%, 71%);
   --theme-color-grey-lighter: hsl(0, 0%, 86%);
   --theme-color-white-ter   : hsl(0, 0%, 96%);
@@ -232,6 +233,8 @@ html.wp{
   --wp-button-color-readmore-hover: var(--theme-color-white-bit);
   --wp-button-color-readmore: var(--theme-color-black-ter);
   --wp-entry-meta-color: var(--theme-color-text-alt);
+  --wp-menu-level1-color-link: var(--theme-color-text-alt);
+  --wp-menu-text-color: var(--theme-color-text-alt);
   --wp-sidebar-background: var(--theme-color-white-ter);
   --wp-widget-background: var(--theme-color-grey-light);
   --wp-widget-title-background: var(--theme-color-grey-lighter);
@@ -241,10 +244,17 @@ html.wp{
   --wp-comment-meta-author-link: var(--theme-color-black-ter);
   --wp-comment-meta-date-link: var(--theme-color-link);
   --wp-form-border-input: var(--theme-color-grey-dark);
+  --wp-pagination-item-color: var(--theme-color-grey-dark2);
+  --wp-pagination-item-color-hover: var(--theme-color-grey-lighter);
+  --wp-pagination-item-background: var(--theme-color-white-ter);
+  --wp-pagination-item-background-hover: var(--theme-color-black-bis);
   /* ─── Fonts ──────── */
   --wp-body-font: var(--wp-font-primary);
   --wp-body-font2: var(--wp-font-secondary);
   --wp-body-font-size: var(--wp-text-base);
+  --wp-menu-livel1-font-family: var(--wp-font-secondary);
+  --wp-menu-livel1-font-size: var(--wp-text-md);
+  --wp-pagination-font-size: calc( var(--wp-text-md) - 1px);
   --wp-tags-font-size: calc(var(--wp-text-md) + 2px);
   --wp-tags-line-height: calc( var(--wp-space-lg) );
   --wp-heading-h1: var(--wp-text-xxxxl);
