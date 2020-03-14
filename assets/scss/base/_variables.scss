@@ -89,7 +89,7 @@
   --theme-color-grey-dark2  : hsl(0, 0%, 50%);
   --theme-color-grey-light  : hsl(0, 0%, 71%);
   --theme-color-grey-lighter: hsl(0, 0%, 86%);
-  --theme-color-white-ter   : hsl(0, 0%, 96%);
+  --theme-color-white-ter   : hsl(0, 0%, 92%);
   --theme-color-white-bis   : hsl(0, 0%, 98%);
   --theme-color-white-bit   : hsl(0, 0%, 99%);
 
@@ -183,12 +183,13 @@ html.wp{
   --wp-text-xxxxxl: var(--theme-text-xxxxxl);
 
   /* ─── WP GLOBAL - Spacing ──────── */
-  --wp-space-unit : var(--theme-space-unit);   // ~0,2 rem
+  --wp-space-xxxxs: var(--theme-space-xxxxs); // ~0,2 rem
   --wp-space-xxxs : var(--theme-space-xxxs);   // ~0,4 rem
   --wp-space-xxs  : var(--theme-space-xxs);    // ~0,6 rem
   --wp-space-xs   : var(--theme-space-xs);     // ~0,8 rem
   --wp-space-x    : var(--theme-space-x);      // ~0,96 rem
   --wp-space-sm   : var(--theme-space-sm);     // ~1,2 rem
+  --wp-space-unit : var(--theme-space-unit);   // ~1.6 rem
   --wp-space-md   : var(--theme-space-md);     // ~2 rem
   --wp-space-ml   : var(--theme-space-ml);     // ~2,4 rem
   --wp-space-lg   : var(--theme-space-lg);     // ~3,2 rem
@@ -235,6 +236,7 @@ html.wp{
   --wp-entry-meta-color: var(--theme-color-text-alt);
   --wp-menu-level1-color-link: var(--theme-color-text-alt);
   --wp-menu-text-color: var(--theme-color-text-alt);
+  --wp-menu-button-togger-color: var(--theme-color-sidebar-footer-heading);
   --wp-sidebar-background: var(--theme-color-white-ter);
   --wp-widget-background: var(--theme-color-grey-light);
   --wp-widget-title-background: var(--theme-color-grey-lighter);

@@ -411,7 +411,7 @@ button, input[type=button], input[type=reset], input[type=submit]{
 
 
 /* ─── Components ──────── */
-// Post Nav
+/* Post Nav */
 .theme-content{
   .posts-nav{
     font-size: 15px; // parent font [em inner]
@@ -441,7 +441,7 @@ button, input[type=button], input[type=reset], input[type=submit]{
     }
   }
 }
-// Author Box
+/*  Author Box */
 .theme-content{
   .author-box{
     .author-box__meta{
@@ -455,7 +455,7 @@ button, input[type=button], input[type=reset], input[type=submit]{
     }
   }
 }
-// Comments
+/* Comments */
 .theme-comments{
   a{
     font-size: 1.6rem;
@@ -476,5 +476,57 @@ button, input[type=button], input[type=reset], input[type=submit]{
         }
       }
     }
+  }
+}
+/* Menu */
+.theme-menu{
+  &__logo{
+    h2, h2 a{
+      font-size: calc( var(--wp-body-font-size) + 2px);
+      font-weight: 400;
+      text-decoration: none;
+      font-family: var(--wp-heading-font);
+    }
+    span{
+      font-size: calc( var(--wp-body-font-size));
+    }
+  }
+  .theme-menu__togger {
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .menu{
+    .item, .item > a{
+      text-decoration: none;
+      word-wrap: break-word;
+      font-family: var(--wp-menu-livel1-font-family);
+      font-size: var(--wp-menu-livel1-font-size);
+    }
+    > .item:hover{
+      > a{
+        text-decoration: underline;
+      }
+    }
+    .theme-menu__togger--subitem::after {
+      line-height: 1;
+      font-size: var(--wp-text-sm); // 1.3rem;
+    }
+  }
+}
+/* Pagination */
+.pagination{
+  font-family: var(--wp-body-font2);
+  &__item{
+      font-size: var(--wp-pagination-font-size);
+      font-weight: 700;
+      > a{
+          font-size: var(--wp-pagination-font-size);
+          font-family: var(--wp-body-font2);
+          text-decoration: none;
+      }
+      &--dots{
+          font-size: var(--wp-pagination-font-size);
+          font-family: var(--wp-body-font2);
+      }
   }
 }

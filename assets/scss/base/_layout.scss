@@ -18,14 +18,14 @@
 // classes used to center content on x-axis and set content max width
 .container {
   max-width: 100%;
-  @include breakpoint(desktop){
+  @include breakpoint(tablet-big){
     max-width: var(--wp-max-width-container);
   }
 }
 // Main Layouts
 .theme-header, .theme-content, .theme-footer{
   display: block;
-  @include breakpoint(tablet){
+  @include breakpoint(tablet-big){
     display: grid;
     max-width: var(--wp-max-width-theme);
   }
@@ -62,6 +62,9 @@
 }
 // Header
 .theme-header{
+  @include breakpoint(tablet-big){
+    max-width: 100%;
+  }
 }
 // Content & Sidebar
 .theme-content{
@@ -105,7 +108,7 @@
 }
 
 /* ─── Components ──────── */
-// Author Box
+/* Author Box */
 .theme-content{
   .author-box{
     display: flex;
@@ -114,7 +117,7 @@
     justify-content: space-between;
   }
 }
-// Comments
+/* Comments */
 .theme-comments{
   .theme-comment-data{
     display: flex;
@@ -134,5 +137,70 @@
         flex-wrap: wrap;
       }
     }
+  }
+}
+/* Menu */
+.theme-menu{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__logo{
+    display: flex;
+  }
+  .menu{
+    .item,.item-mega{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      align-content: center;
+      flex-wrap: wrap;
+      .item-with-child{
+        order: 1;
+      }
+      .theme-menu__togger--subitem{
+          order:2;
+      }
+      .submenu,.container-mega{
+          order:3;
+      }
+    }
+    .item, .item > a{
+      display: flex;
+    }
+  }
+  .menu{
+    @include breakpoint(tablet-big){
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      align-content: center;
+      .item {
+        display: flex;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+        .item-with-child{
+            order: 1;
+        }
+        .theme-menu__togger--subitem{
+            order:2;
+        }
+      }
+    }
+  }
+}
+/* Pagination */
+.pagination{
+  display: flex;
+  justify-items: center;
+  &__items{
+      display: inline-block;
+  }
+  &__item{
+      display: inline-block;
   }
 }

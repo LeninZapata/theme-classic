@@ -180,7 +180,7 @@ footer{
 }
 
 /* ─── Components ──────── */
-// Author Box
+/* Author Box */
 .theme-content{
     .author-box{
         .author-box__meta{
@@ -192,7 +192,7 @@ footer{
         }
     }
 }
-// Post Nav
+/* Post Nav */
 .theme-content{
     .posts-nav{
         a{
@@ -200,7 +200,7 @@ footer{
         }
     }
 }
-// Comments
+/* Comments */
 .theme-comments{
     .theme-comment-data{
         .theme-comment-metas{
@@ -218,5 +218,77 @@ footer{
     }
     .comment-respond{
         color: var(--wp-body-text-color-alt);
+    }
+}
+/* Menu */
+.theme-menu{
+    background: transparent;
+    &__logo{
+        h2, h2 a{
+            color: var(--wp-heading-color);
+        }
+        span{
+            color: var(--wp-menu-text-color);
+        }
+        &--separate{
+            color: var(--wp-menu-text-color);
+        }
+    }
+    .theme-menu__togger {
+        background: var(--wp-menu-button-togger-color);
+        color: var(--theme-color-white-bis);
+        > span{
+            background:var(--theme-color-white-bis);
+        }
+        &:hover{
+            background: var(--theme-color-black-ter);
+        }
+    }
+    .menu{
+        background-color: #fff;
+        .item,.item-mega{
+            .container-mega{
+                background-color: blue;
+            }
+            & > .submenu{
+                background-color: #fff;
+            }
+        }
+        .item, .item > a{
+            color: var(--wp-menu-level1-color-link);
+        }
+        > .item:hover{
+            > a{
+                color: var(--theme-color-black-ter);
+            }
+        }
+        .theme-menu__togger--subitem{
+            background: var( --wp-color-menu-button-subtogger-color,var(--wp-menu-button-togger-color));
+            color: var(--theme-color-white-bis);
+            @include breakpoint(tablet-big){
+                background: transparent;
+            }
+        }
+    }
+}
+/* Pagination */
+.pagination{
+    &__item{
+        > a{
+            color: var(--wp-pagination-item-color);
+            background: var(--wp-pagination-item-background);
+            &:hover{
+                color: var(--wp-pagination-item-color-hover);
+                background: var(--wp-pagination-item-background-hover);
+            }
+        }
+        &--current{
+            color: var(--wp-pagination-item-color-hover);
+            background: var(--wp-pagination-item-background-hover);
+        }
+        &--dots{
+            color: var(--wp-pagination-item-color);
+            background: var(--wp-pagination-item-background);
+        }
     }
 }

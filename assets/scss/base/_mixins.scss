@@ -3,6 +3,7 @@ $breakpoints: (
   mobile-lands : 512px,
   mobile-big   : 600px,
   tablet       : 768px,
+  tablet-big   : 900px,
   tablet-lands : 1024px,
   desktop      : 1280px,
   desktop-lands: 1440px
@@ -85,7 +86,7 @@ $breakpoints: (
     @include spacer($attr + "-top", $size);
     @include spacer($attr + "-bottom", $size);
   }
-  @else if $direction == db or $direction == doble or $direction == double {
+  @else if $direction == d or $direction == db or $direction == doble or $direction == double {
     @include spacer($attr, $size + ' ' + $size2);
   }
 }
