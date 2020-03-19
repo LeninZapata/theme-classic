@@ -71,8 +71,6 @@
   display: block;
   @include breakpoint(tablet-lands){
     display: grid;
-    //grid-template-columns: var(--theme-layout-content,[content] 1fr [sidebar] 300px);
-    //grid-template-areas: var(--theme-layout-content,"content sidebar");
   }
   .content{
     grid-area: content;
