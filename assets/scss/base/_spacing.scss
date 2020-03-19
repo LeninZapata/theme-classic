@@ -450,12 +450,15 @@ a.more-link{
   .menu{
     @include spacing( $direction: x, $size: var(--wp-space-lg));
     .item,.item-mega{
-        @include spacing( $size: 0, $attr:margin);
-        @include spacing( $direction: y, $size: var( --wp-space-unit ));
-        @include spacing( $direction: x, $size: var(--wp-space-lg));
+      @include spacing( $size: 0, $attr:margin);
+        a{
+          @include spacing( $size: 0, $attr:margin);
+          @include spacing( $direction: y, $size: var( --wp-space-unit ));
+          @include spacing( $direction: x, $size: var(--wp-space-md));
+        }
         //@include spacing( $size: 0, $direction: l);
         @include breakpoint(tablet-big){
-          @include spacing( $direction: d,$size:calc( var(--wp-space-md) / 2), $size2: calc( var(--wp-space-sm) * 2 ) );
+          //@include spacing( $direction: d,$size:calc( var(--wp-space-md) / 2), $size2: calc( var(--wp-space-sm) * 2 ) );
         }
         & > .submenu{
           @include spacing($size:calc( var(--wp-space-md) / 2));
@@ -470,7 +473,8 @@ a.more-link{
         }
     }
     .theme-menu__togger--subitem{
-      //@include spacing($size: var(--wp-space-x));
+      @include spacing($direction: r, $size: var(--wp-space-lg), $attr:margin);
+      @include spacing($direction: b, $size: var(--wp-space-xxxxs), $attr:margin);
       @include breakpoint(tablet-big){
         @include spacing( $size: initial );
       }

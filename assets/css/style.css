@@ -1579,10 +1579,35 @@ label {
           order: 1;
 }
 
+.theme-menu .menu .item .item-with-child__icon, .theme-menu .menu .item-mega .item-with-child__icon {
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media (min-width: 56.25rem) {
+  .theme-menu .menu .item .item-with-child__icon, .theme-menu .menu .item-mega .item-with-child__icon {
+    /* min-width 900px = 56.25rem based in base 16px */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
 .theme-menu .menu .item .theme-menu__togger--subitem, .theme-menu .menu .item-mega .theme-menu__togger--subitem {
   -webkit-box-ordinal-group: 3;
       -ms-flex-order: 2;
           order: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .theme-menu .menu .item .submenu, .theme-menu .menu .item .container-mega, .theme-menu .menu .item-mega .submenu, .theme-menu .menu .item-mega .container-mega {
@@ -1637,6 +1662,7 @@ label {
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
             order: 2;
+    display: none;
   }
 }
 
@@ -2210,16 +2236,19 @@ a.more-link {
 
 .theme-menu .menu .item, .theme-menu .menu .item-mega {
   margin: 0;
+}
+
+.theme-menu .menu .item a, .theme-menu .menu .item-mega a {
+  margin: 0;
   padding-top: var(--wp-space-unit);
   padding-bottom: var(--wp-space-unit);
-  padding-left: var(--wp-space-lg);
-  padding-right: var(--wp-space-lg);
+  padding-left: var(--wp-space-md);
+  padding-right: var(--wp-space-md);
 }
 
 @media (min-width: 56.25rem) {
   .theme-menu .menu .item, .theme-menu .menu .item-mega {
     /* min-width 900px = 56.25rem based in base 16px */
-    padding: calc( var(--wp-space-md) / 2) calc( var(--wp-space-sm) * 2);
   }
 }
 
@@ -2238,6 +2267,11 @@ a.more-link {
 .theme-menu .menu .item > .submenu .item, .theme-menu .menu .item-mega > .submenu .item {
   margin: 0;
   padding-right: 0;
+}
+
+.theme-menu .menu .theme-menu__togger--subitem {
+  margin-right: var(--wp-space-lg);
+  margin-bottom: var(--wp-space-xxxxs);
 }
 
 @media (min-width: 56.25rem) {
@@ -3091,24 +3125,12 @@ input[type="search"]:hover {
 
 .theme-menu .menu .theme-menu__togger--subitem {
   cursor: pointer;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  height: var(--wp-space-lg);
-  width: var(--wp-space-lg);
+  height: calc( var(--wp-space-xl) - 5px);
+  width: calc( var(--wp-space-xl) - 5px);
 }
 
 .theme-menu .menu .theme-menu__togger--subitem::after {
   content: "+";
-  /* width: var(--wp-space-sm);
-                height: var(--wp-space-sm);
-                display: inline-block; */
 }
 
 @media (min-width: 56.25rem) {
@@ -3136,6 +3158,11 @@ input[type="search"]:hover {
 
 .theme-menu [id^="toggle"]:checked ~ .menu {
   left: 0;
+}
+
+.theme-menu .menu {
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
 }
 
 @media (min-width: 56.25rem) {
@@ -3223,14 +3250,24 @@ input[type="search"]:hover {
     opacity: 1;
   }
   .theme-menu .item:hover > [id^="toggle"]:checked ~ .theme-menu__togger--subitem::after {
-    content: " -";
+    content: "-";
   }
   .theme-menu .item:hover > .theme-menu__togger--subitem::after {
-    content: " -";
+    content: "-";
   }
   .theme-menu .item > [id^="toggle"]:checked ~ .theme-menu__togger--subitem::after,
   .theme-menu > [id^="toggle"]:checked ~ .theme-menu__togger::after {
     content: " +";
+  }
+  .theme-menu .item-with-child > a .item-with-child__icon {
+    width: 20px;
+    height: 20px;
+  }
+  .theme-menu .item-with-child > a .item-with-child__icon:before {
+    content: '+';
+  }
+  .theme-menu .item-with-child:hover > a .item-with-child__icon:before {
+    content: '-';
   }
 }
 

@@ -157,9 +157,19 @@
       flex-wrap: wrap;
       .item-with-child{
         order: 1;
+        &__icon{
+          display:none;
+          justify-content: center;
+          @include breakpoint(tablet-big){
+            display: flex;
+          }
+        }
       }
       .theme-menu__togger--subitem{
-          order:2;
+        order:2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       .submenu,.container-mega{
           order:3;
@@ -184,10 +194,11 @@
         align-items: center;
         flex-wrap: nowrap;
         .item-with-child{
-            order: 1;
+          order: 1;
         }
         .theme-menu__togger--subitem{
-            order:2;
+          order:2;
+          display: none;
         }
       }
     }
