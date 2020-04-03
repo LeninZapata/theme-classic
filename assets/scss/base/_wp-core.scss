@@ -7,11 +7,14 @@
 .wp-caption-text {
   display: block;
 }
-.aligncenter { display: block;  }
-.alignright { float: right; }
-.alignleft { float: left; }
-.floatleft { float: left; }
-.floatright { float: right; }
+.aligncenter { display: block; width: auto; max-width: 100%!important;  }
+.alignright,.alignleft,.floatleft ,.floatright { float: none; }
+@include breakpoint(mobile-lands){
+  .alignright { float: right; }
+  .alignleft { float: left; }
+  .floatleft { float: left; }
+  .floatright { float: right; }
+}
 img{
   &.aligncenter,&.alignright,&.alignleft{
     border: 1px solid #EEE;
@@ -31,7 +34,7 @@ img{
   }
 }
 
-// ─── Gallery ────────
+/* Gallery */
 .gallery{
   .gallery-item{
     position:relative;
@@ -66,10 +69,19 @@ img{
     }
   }
 }
+/* Block Gallery */
+.wp-block-gallery{
+  &.is-cropped{
+    .blocks-gallery-item{
+      a{ /* ─── Fix the height of the image ──────── */
+        display: flex;
+      }
+    }
+  }
+}
 
-// ─── Author Comments ────────
+/* Author Comments */
 .bypostauthor{
-  line-height: 1;
   > .comment-body{
     > .comment-meta{
       > .comment-content{
@@ -79,24 +91,22 @@ img{
   }
 }
 
-// ─── Calendar ────────
-footer{
-  #wp-calendar{
-    caption{
-      background: #252525;
-    }
-    th,
-    tbody tr,
-    tfoot{
-      background: transparent;
-    }
-    th, td, table{
-      border: 1px solid #3C3C3C;
-    }
+/* Calendar */
+#wp-calendar{
+  caption{
+    background: #252525;
+  }
+  th,
+  tbody tr,
+  tfoot{
+    background: transparent;
+  }
+  th, td, table{
+    border: 1px solid #3C3C3C;
   }
 }
 
-// ─── Others ────────
+/* Others */
 /* Text meant only for screen readers. */
 .screen-reader-text {
   clip: rect(1px, 1px, 1px, 1px);
@@ -114,6 +124,6 @@ footer{
     left: 5px;
     top: 5px;
     width: auto;
-    z-index: 100000; /* Above WP toolbar. */
+    z-index: var(--theme-zindex-overlay); /* Above WP toolbar. */
   }
 }

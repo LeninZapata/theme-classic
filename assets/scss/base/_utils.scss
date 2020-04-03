@@ -131,19 +131,6 @@ $media-wrapper-aspect-ratios: (
   max-width: initial;
 }
 
-.icon--is-spinning { // rotate the icon infinitely
-  animation: icon-spin 1s infinite linear;
-}
-
-@keyframes icon-spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
 // ─── Visibility ────────
 .is-visible {
   display: var(--theme-display) !important;

@@ -14,59 +14,95 @@
   }
 }
 
-/* ─── WP Core ──────── */
-// classes used to center content on x-axis and set content max width
+/* ─── Layouts ──────── */
+/* classes used to center content on x-axis and set content max width */
 .container {
   max-width: 100%;
   @include breakpoint(tablet-big){
     max-width: var(--wp-max-width-container);
   }
 }
-// Main Layouts
+/* Main Layouts */
 .theme-header, .theme-content, .theme-footer{
-  display: block;
   @include breakpoint(tablet-big){
-    display: grid;
     max-width: var(--wp-max-width-theme);
   }
 }
-// Home
-.homepage{
+/* Home & Archive */
+.home, .archive{
   .theme-header, .theme-content, .theme-footer{
     @include breakpoint(tablet){
       max-width: 100%;
     }
   }
   .theme-content{
-      .content{
-        max-width: var(--wp-max-width-lg);
-        display: grid;
-        grid-gap: var(--wp-space-lg);
-        grid-template-columns: 1fr;
-        @include breakpoint(mobile-big){
-          grid-template-columns: 1fr 1fr;
-        }
-        @include breakpoint(tablet-lands){
-          grid-template-columns: 1fr 1fr 1fr;
-        }
-        > article.post:first-child{
-          @include breakpoint(mobile-big){
-            grid-column: span 2;
-          }
-          display: grid;
-          align-items: center;
-          justify-content: center;
-        }
+    grid-template-areas: "content" "navigation";
+    .content{
+      max-width: var(--wp-max-width-lg);
+      display: grid;
+      justify-self: center;
+      grid-gap: var(--wp-space-xl);
+      grid-template-columns: 1fr;
+      @include breakpoint(mobile-big){
+        grid-template-columns: 1fr 1fr;
       }
+      @include breakpoint(tablet-lands){
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      > article.post.post__featured{
+        .entry-meta,.entry-content{
+          max-width: var(--wp-max-width-s);
+        }
+        .entry-featured-image{
+          display:none;
+        }
+        @include breakpoint(mobile-big){
+          grid-column: span 2;
+        }
+        display: grid;
+        align-items: center;
+        justify-content: center;
+      }
+    }
   }
 }
-// Header
+.archive{
+  .theme-content{
+    grid-template-areas: "header-archive" "content" "navigation";
+  }
+}
+/* Header */
 .theme-header{
+  .header-wrap{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__logo{
+      display: flex;
+      h1,h2{
+        display: flex;
+        align-self: center;
+      }
+      &--description{
+        display: none;
+        @include breakpoint(tablet-lands){
+          display: flex;
+          align-self: center;
+        }
+      }
+      &--separate{
+        &::before{
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+  }
   @include breakpoint(tablet-big){
     max-width: 100%;
   }
 }
-// Content & Sidebar
+/* Content & Sidebar */
 .theme-content{
   display: block;
   @include breakpoint(tablet-lands){
@@ -79,28 +115,51 @@
     grid-area: sidebar;
     display: none;
   }
+  .pagination{
+    grid-area: navigation;
+  }
+  .header-archive{
+    grid-area: header-archive
+  }
 }
-// Footer
+/* Footer */
 .theme-footer{
   max-width: 100%;
-}
-.theme-footer{
   .footer__sidebar{
-    @include breakpoint(tablet){
+    max-width: 100%;
+    width: 100%;
+    justify-content: center;
+    @include breakpoint(tablet-big){
       display:grid;
-      grid-gap: var(--wp-space-lg);
+      grid-gap: var(--wp-space-lg);;
+      justify-self: center;
     }
     &.footer-3{
       grid-template-columns: 1fr;
       @include breakpoint(tablet){
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
       }
       @include breakpoint(tablet-lands){
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: repeat(3, 1fr);
       }
     }
     &.footer-2{
       grid-template-columns: 1fr 1fr;
+    }
+  }
+  @include breakpoint(tablet-big){
+    display: grid;
+  }
+}
+.theme-footer-bar{
+  max-width: 100%;
+}
+
+/* 404 */
+.error404{
+  .theme-content{
+    display:block;
+    .content{
     }
   }
 }
@@ -138,22 +197,16 @@
   }
 }
 /* Menu */
-.theme-menu{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  &__logo{
-    display: flex;
-  }
-  .menu{
-    .item,.item-mega{
+.header-wrap__menu{
+  .theme-menu{
+    .menu-item,.menu-item-mega{
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       align-content: center;
       flex-wrap: wrap;
-      .item-with-child{
+      &.menu-item-has-children{
         order: 1;
         &__icon{
           display:none;
@@ -162,28 +215,42 @@
             display: flex;
           }
         }
+        display: grid;
+        grid-template-columns: 1fr 60px;
+        @include breakpoint(tablet-big){
+          display: flex;
+        }
       }
-      .theme-menu__togger--subitem{
+      .sub-menu,.container-mega{
+        order:3;
+        grid-column: 2 span;
+      }
+    }
+    .menu-item,.menu-item a{
+      display: block;
+      @include breakpoint(tablet-big){
+        width: auto;
+        display: flex;
+      }
+    }
+    &__togger{
+      display: flex;
+      flex-wrap: nowrap;
+      flex-direction: column;
+      align-items: center;
+      &--subitem{
         order:2;
         display: flex;
         align-items: center;
         justify-content: center;
       }
-      .submenu,.container-mega{
-          order:3;
-      }
     }
-    .item, .item > a{
-      display: flex;
-    }
-  }
-  .menu{
     @include breakpoint(tablet-big){
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       align-content: center;
-      .item {
+      .menu-item {
         display: flex;
         position: relative;
         display: flex;
@@ -191,10 +258,18 @@
         align-content: center;
         align-items: center;
         flex-wrap: nowrap;
-        .item-with-child{
+        .menu-item-has-children{
           order: 1;
         }
-        .theme-menu__togger--subitem{
+        .menu-item-has-children{
+          > a .menu-item__icon{
+            display: flex;
+            justify-content: center;
+          }
+        }
+      }
+      &__togger{
+        &--subitem{
           order:2;
           display: none;
         }
@@ -211,5 +286,17 @@
   }
   &__item{
       display: inline-block;
+  }
+}
+/* Breadcrumbs */
+.breadcrumbs-wrap{
+  display:none;
+  @include breakpoint(tablet-big){
+    display:block;
+  }
+  .breadcrumbs{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
   }
 }

@@ -37,6 +37,7 @@
 			"titleBar.activeForeground": "#F1FEED"
 		} */
 		"workbench.colorTheme": "Community Material Theme Ocean",
+		"es6-css-minify.minifyOnSave": "yes",
 		/* "workbench.colorCustomizations": {
 			"activityBar.background": "#0E3502",
 			"titleBar.activeBackground": "#144B03",

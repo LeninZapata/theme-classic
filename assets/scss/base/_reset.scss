@@ -54,7 +54,10 @@ q:before, q:after {
 }
 table {
   border-collapse: collapse;
-  border-spacing: 0;
+  overflow-x: auto;
+}
+table td, table ,th{
+  word-break: break-all;
 }
 img {
   max-width: 100%;
@@ -64,6 +67,16 @@ img {
 iframe{
   max-width: 100%;
 }
+video,
+audio,
+iframe{
+  width: 100% !important;
+}
 code {
   border-radius: 3px;
+}
+hr {
+  height: 0;
+  border: none;
+  border-top: 1px dashed #b3b3b3;
 }

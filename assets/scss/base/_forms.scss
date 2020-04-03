@@ -4,9 +4,8 @@
 |--------------------------------------------------------------------------
 */
 /* ─── Reset ──────── */
-// Here you use empty hook type variables that can be edited in the custom
+/* Here you use empty hook type variables that can be edited in the custom */
 form {
-  // background-color: var(--color-bg, hsl(0, 0%, 95%));
   border-radius: var(--form-control-radius, 0.25rem);
   &::-moz-placeholder {
     opacity: 1;
@@ -52,9 +51,6 @@ label {
   border-radius: 3px;
   display: block;
   width: 100%;
-  -webkit-transition: all 0.1s linear;
-  -moz-transition: all 0.1s linear;
-  transition: all 0.1s linear;
   border: 1px solid var(--wp-body-text-color-alt2);
   -webkit-appearance: none;
   @include breakpoint(tablet){

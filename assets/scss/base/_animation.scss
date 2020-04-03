@@ -1,0 +1,75 @@
+/*
+|--------------------------------------------------------------------------
+| = 11. Animation
+|--------------------------------------------------------------------------
+*/
+/* ─── Forms ──────── */
+textarea, input[type="text"],input[type="password"],input[type="number"],
+input[type="search"]{
+  transition: 100ms all var(--theme-ease-in-out);
+}
+
+/* ─── Button ──────── */
+.button, input[type="submit"]{
+  -webkit-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+/* ─── Icons ──────── */
+.icon--is-spinning { // rotate the icon infinitely
+  animation: icon-spin 1s infinite linear;
+}
+
+/* ─── Components ──────── */
+/* Menu */
+.theme-menu{
+  transition: all .3s ease;
+  .menu-item, .menu-item > a{
+    transition: 300ms ease background-color;
+  }
+  @include breakpoint(tablet-big){
+    .sub-menu{
+      transition: 200ms all ease-in-out;
+    }
+  }
+}
+/* Button top up */
+.theme-button-back-to-top{
+  transition: all .3s;
+  &.show {
+    animation-name: bounceIn;
+    animation-duration: 450ms;
+  }
+}
+
+
+
+/* ─── Name animations ──────── */
+@keyframes icon-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bounceIn{
+  0%{
+    opacity: 0;
+    transform: scale(0.3) translate3d(0,0,0);
+  }
+  50%{
+    opacity: 0.9;
+    transform: scale(1.1);
+  }
+  80%{
+    opacity: 1;
+    transform: scale(0.89);
+  }
+  100%{
+    opacity: 1;
+    transform: scale(1) translate3d(0,0,0);
+  }
+}

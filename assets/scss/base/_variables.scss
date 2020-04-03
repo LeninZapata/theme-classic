@@ -39,16 +39,16 @@
   --theme-space-xxxxl: calc(13.75 * var(--theme-space-unit));  // ~22 rem
 
   /* ─── Text scale ──────── */
-  --theme-text-xs  : calc( var(--theme-text-base-size) / var(--theme-text-scale-ratio) / var(--theme-text-scale-ratio)  );
-  --theme-text-sm  : calc( var(--theme-text-base-size) / var(--theme-text-scale-ratio) );
-  --theme-text-md  : calc( var(--theme-text-sm) * var(--theme-text-scale-ratio) );
-  --theme-text-ml  : calc( var(--theme-text-md) * var(--theme-text-scale-ratio) );
-  --theme-text-lg  : calc( var(--theme-text-md) * var(--theme-text-scale-ratio) );
-  --theme-text-xl  : calc( var(--theme-text-lg) * var(--theme-text-scale-ratio) );
-  --theme-text-xxl : calc( var(--theme-text-xl) * var(--theme-text-scale-ratio) );
-  --theme-text-xxxl: calc( var(--theme-text-xxl) * var(--theme-text-scale-ratio) );
-  --theme-text-xxxxl: calc( var(--theme-text-xxxl) * var(--theme-text-scale-ratio) );
-  --theme-text-xxxxxl: calc( var(--theme-text-xxxxl) * var(--theme-text-scale-ratio) );
+  --theme-text-xs  : calc( var(--theme-text-base-size) / var(--theme-text-scale-ratio) / var(--theme-text-scale-ratio)  ); // 1.1 rem
+  --theme-text-sm  : calc( var(--theme-text-base-size) / var(--theme-text-scale-ratio) ); // 1.33 rem
+  --theme-text-md  : calc( var(--theme-text-sm) * var(--theme-text-scale-ratio) ); // 1,6 rem
+  --theme-text-ml  : calc( var(--theme-text-md) * var(--theme-text-scale-ratio) ); // 1,92 rem
+  --theme-text-lg  : calc( var(--theme-text-ml) * var(--theme-text-scale-ratio) ); // 2,3 rem
+  --theme-text-xl  : calc( var(--theme-text-lg) * var(--theme-text-scale-ratio) ); // 2,76 rem
+  --theme-text-xxl : calc( var(--theme-text-xl) * var(--theme-text-scale-ratio) ); // 3,17 rem
+  --theme-text-xxxl: calc( var(--theme-text-xxl) * var(--theme-text-scale-ratio) ); // 3,98 rem
+  --theme-text-xxxxl: calc( var(--theme-text-xxxl) * var(--theme-text-scale-ratio) ); // 4,77 rem
+  --theme-text-xxxxxl: calc( var(--theme-text-xxxxl) * var(--theme-text-scale-ratio) ); // 5,733 rem
 
   /* ─── Colors ──────── */
   --theme-color-primary      : hsl(220, 88%, 62%);
@@ -97,6 +97,7 @@
   --theme-display: block;
 
   /* ─── z-Index ──────── */
+  --theme-zindex-over         : 1;
   --theme-zindex-header       : 2;
   --theme-zindex-popover      : 5;   // e.g., tooltips and dropdown
   --theme-zindex-fixed-element: 10;  // e.g., 'back to top' button
@@ -165,17 +166,17 @@ html.wp{
   --wp-font-secondary: var(--theme-font-secondary);
 
   /* ─── WP GLOBAL - Fonts Sizes ──────── */
-  --wp-text-base  :  calc( var(--theme-text-md) + 2px );
-  --wp-text-xs    : var(--theme-text-xs);
-  --wp-text-sm    : var(--theme-text-sm);
-  --wp-text-md    : var(--theme-text-md);
-  --wp-text-ml    : var(--theme-text-ml);
-  --wp-text-lg    : var(--theme-text-lg);
-  --wp-text-xl    : var(--theme-text-xl);
-  --wp-text-xxl   : var(--theme-text-xxl);
-  --wp-text-xxxl  : var(--theme-text-xxxl);
-  --wp-text-xxxxl : var(--theme-text-xxxxl);
-  --wp-text-xxxxxl: var(--theme-text-xxxxxl);
+  --wp-text-xs    : var(--theme-text-xs);                // 1.1 rem
+  --wp-text-sm    : var(--theme-text-sm);                // 1.33 rem
+  --wp-text-md    : var(--theme-text-md);                // 1,6 rem
+  --wp-text-base  : var(--theme-text-md);
+  --wp-text-ml    : var(--theme-text-ml);                // 1,92 rem
+  --wp-text-lg    : var(--theme-text-lg);                // 2,3 rem
+  --wp-text-xl    : var(--theme-text-xl);                // 2,76 rem
+  --wp-text-xxl   : var(--theme-text-xxl);               // 3,17 rem
+  --wp-text-xxxl  : var(--theme-text-xxxl);              // 3,98 rem
+  --wp-text-xxxxl : var(--theme-text-xxxxl);             // 4,77 rem
+  --wp-text-xxxxxl: var(--theme-text-xxxxxl);            // 5,733 rem
 
   /* ─── WP GLOBAL - Other Font Size ──────── */
   --wp-text-xs : var(--theme-text-xs);
@@ -215,7 +216,7 @@ html.wp{
 
 
 
-  /* ─── WP CLASSES ──────── */
+  /* ─── WP VARS ──────── */
   // Now we go to simplify everything right in the parts of Wordpress
   // in this way the change is reduced and confusion is avoided.
   // ─── Width & Height ────────
@@ -224,6 +225,7 @@ html.wp{
   --wp-width-entry-max: var(--theme-max-width-s);
   --wp-max-width-container:var(--theme-max-width-md);
   --wp-max-width-theme:var(--theme-max-width-ms);
+
   // ─── Colors ────────
   --wp-primary-color: var(--theme-color-primary);
   --wp-body-text-color: var(--theme-color-text);
@@ -250,12 +252,14 @@ html.wp{
   --wp-pagination-item-color-hover: var(--theme-color-grey-lighter);
   --wp-pagination-item-background: var(--theme-color-white-ter);
   --wp-pagination-item-background-hover: var(--theme-color-black-bis);
+
   /* ─── Fonts ──────── */
   --wp-body-font: var(--wp-font-primary);
   --wp-body-font2: var(--wp-font-secondary);
-  --wp-body-font-size: var(--wp-text-base);
+  --wp-body-font-size:  calc( var(--wp-text-base) + 2px ); // 18px
   --wp-menu-livel1-font-family: var(--wp-font-secondary);
   --wp-menu-livel1-font-size: var(--wp-text-md);
+  --wp-menu-resposive-livel1-font-size: var(--wp-text-xl);
   --wp-pagination-font-size: calc( var(--wp-text-md) - 1px);
   --wp-tags-font-size: calc(var(--wp-text-md) + 2px);
   --wp-tags-line-height: calc( var(--wp-space-lg) );
@@ -266,22 +270,24 @@ html.wp{
   --wp-heading-h5: var(--wp-text-lg);
   --wp-heading-h6: var(--wp-text-md);
   --wp-heading-font: var(--theme-font-third);
-  --wp-heading-line-height: calc( var(--theme-heading-line-height) + 3px );
+  --wp-heading-line-height: var(--theme-heading-line-height) ;
+  --wp-home-heading-line-height: var(--theme-heading-line-height);
   --wp-post-title-line-height: calc( var(--wp-text-xxxxxl) + 8px);
   --wp-post-font-meta: calc( var(--wp-text-sm) + 1px);
   --wp-form-button-text-size: var(--wp-text-md);
+
   /* ─── Image  ──────── */
   --wp-post-featured-image-max-width: var(--theme-max-width-md);
   --wp-post-featured-box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);
   --wp-image-filter: var(--theme-image-default-filter);
 
-  --wp-post-font-size: var(--wp-text-base);
+  --wp-post-font-size: var(--wp-body-font-size);
   --wp-post-image-box-shadow: var(--wp-post-featured-box-shadow);
 
   // ─── Spaces ────────
   --wp-form-input-padding-all: var(--theme-space-x);
-  --wp-post-image-margin-align-right-left: var( --wp-space-sm );
-  --wp-post-image-margin-align-right-botton: var( --wp-space-sm );
-  --wp-post-image-margin-align-left-right: var( --wp-space-sm );
-  --wp-post-image-margin-align-left-botton: var( --wp-space-sm );
+  --wp-post-image-margin-align-right-left: var( --wp-space-lg );
+  --wp-post-image-margin-align-right-botton: var( --wp-space-lg );
+  --wp-post-image-margin-align-left-right: var( --wp-space-lg );
+  --wp-post-image-margin-align-left-botton: var( --wp-space-lg );
 }

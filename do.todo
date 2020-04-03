@@ -1,6 +1,20 @@
 Hacer:
-    ☐ Agregale un changelog
+    ☐ hacer el popup search pure css
+        aqui hay un ejemplo https://codepen.io/tayfunerbilen/pen/wvvKBeX
+        https://webdevtrick.com/popup-in-pure-css-and-html-get-example-with-source-code/
+    ✔ en las variables --wp de la base es mejor que remuevas el CALC @done(20-04-01 15:57)
+        ya que no se puede hacer un calc de una vaiable y luego otro calc interno, no coje el valor
+        @conclusion APARTIR de 'WP VARS' si se deberian calcular a medias ya que alli empiezan las variables del theme.
+    ☐ En el SCSS hacer que por ejemplo los nombres de cada elemento o componentes sea bien establecidos
+        y tambien que por ejemplo si COMMMENTS-NAV, etc... estan en la parte de color entonces diga el comentario de
+        cabecera, // Components - Comments:colors entonces asi se identifica, otro Components - Comments:Core
+        @low hay que analizarlo.
 Corregir:
+    ✔ Mira los z-index con variables @done(20-04-01 15:47)
+    ✔ Imagen figure > image no funciona bien, la imagen se va muy abajo se colapsa. @done(20-03-30 12:37)
+    ✔ Tabla de multiple columnas no es responsive, el diseño se rompe @done(20-03-30 12:37)
+    ✔ Animations debe estar documentado en la tala de CSs @done(20-04-01 15:47)
+    ✔ Esteliza el menu, no se ve del todo bien @done(20-03-30 12:37)
     ✔ En DIBUJAR LAYOUTS falta el layouts de otros elementos @done(20-03-01 20:01)
         ✔ por ejemplo falta el del footer que si lo tiene el footer pero debe @done(20-02-29 21:04)
         estar solo debe estar en esa parte de DRAW LGRID.
@@ -16,7 +30,7 @@ Corregir:
     para eliminar este espacio
     ✔ Puedes hacer que el -- lo cambias por __ porque primero es el elemento y luego el modificador, @done(20-03-06 23:56)
     esto en scss y html
-    ☐ elimina todo el scss que este comentado
+    ✔ elimina todo el scss que este comentado @done(20-04-01 15:47)
     ✘ parece que las variales --var-color-text mejor seria --var-text-color, estudia eso @cancelled(20-03-06 23:30)
     ✔ la hoja _breakpoint.scss hay que eliminarlo, esto es un mixin mas @done(20-03-01 20:02)
     ✔ en el archivo _mixin hay unas funciones que sobrescriben los tamaños para nivel de componentes, revisa esto @done(20-03-06 23:32)
@@ -30,3 +44,7 @@ Corregir:
     ✔ En el home esta mal que hayas puesto el CHILD elemento. @done(20-03-07 01:45)
         lo que pasa que nosiempre en otro theme sera asi, entonces al ponerle child siempre tendras que setear
         ese primer elemento, es un dolor de cabeza eso, es mejor usalo por una clase que solo tenga el priemr bloque
+
+Despues:
+    ☐ Agregale un changelog cuando ya este en produccion la primera etapa
+    ☐ Preload solo por primera vez, luego ya no se lo usa.

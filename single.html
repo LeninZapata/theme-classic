@@ -1,8 +1,10 @@
 <html class="wp">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="assets/css/wp-block.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
     <link rel='stylesheet' id='tavern-font-css'  href='https://fonts.googleapis.com/css?family=Frank+Ruhl+Libre:400,400i,700|Lora:400,400i,700,700i|Lato:400,400i,700,700i&#038;subset=latin,latin-ext' type='text/css' media='all' />
+    <link rel='stylesheet' id='theme-icons-css'  href='https://use.fontawesome.com/releases/v5.8.2/css/all.css?ver=5.3.2' type='text/css' media='all' />
     <style>
       html{
         /* --layout-content:[sidebar] 300px [content] 1fr; */
@@ -13,62 +15,71 @@
     <div class="theme-layout">
 
       <section class="theme-header container">
-        <nav class="theme-menu">
-          <section class="theme-menu__logo">
+        <header class="header-wrap">
+          <section class="header-wrap__logo">
             <h2>
-              <a href="#" class="theme-menu__logo--text">Love of writing</a>
-              <span class="theme-menu__logo--separate"></span>
-              <span class="theme-menu__logo--description">Description website</span>
+              <a href="#" class="header-wrap__logo--text">Love of writing</a>
+              <span class="header-wrap__logo--separate"></span>
+              <span class="header-wrap__logo--description">Description website</span>
             </h2>
           </section>
-          <section class="theme-menu__menus">
+          <section class="header-wrap__menu">
             <input type="checkbox" id="toggle" class="nav-bar__toggle">
             <label for="toggle" class="theme-menu__togger">
               <span></span>
               <span></span>
               <span></span>
             </label>
-            <ul class="menu">
-              <li class="item"><a href="#">About</a></li>
-              <li class="item"><a href="#">Archives</a></li>
-              <li class="item"><a href="#">Comment</a></li>
-              <li class="item item-with-child">
+            <ul class="theme-menu">
+              <li class="menu-item"><a href="#">About</a></li>
+              <li class="menu-item"><a href="#">Archives</a></li>
+              <li class="menu-item"><a href="#">Comment<span class="menu-item__icon"></span></a></li>
+              <li class="menu-item menu-item-has-children">
                 <input type="checkbox" id="toggle-sub-1" class="nav-bar__toggle">
                 <label for="toggle-sub-1" class="theme-menu__togger--subitem"></label>
-                <a class="" href="#">Contact</a>
-                <ul class="submenu">
-                  <li class="item"><a href="#">Menu #6</a></li>
-                  <li class="item"><a href="#">Menu #7</a></li>
-                  <li class="item  item-with-child">
+                <a class="" href="#">Contact<span class="menu-item__icon"></span></a>
+                <ul class="sub-menu">
+                  <li class="menu-item"><a href="#">Menu #6</a></li>
+                  <li class="menu-item"><a href="#">Menu #7</a></li>
+                  <li class="menu-item  menu-item-has-children">
                     <input type="checkbox" id="toggle-sub-2" class="nav-bar__toggle">
                     <label for="toggle-sub-2" class="theme-menu__togger--subitem"></label>
-                    <a class="" href="#">Menu # 8</a>
-                    <ul class="submenu">
-                      <li class="item"><a href="#">Menu #9</a></li>
-                      <li class="item"><a href="#">Menu #10</a></li>
-                      <li class="item"><a href="#">Menu #11</a></li>
-                      <li class="item"><a href="#">Menu #12</a></li>
-                      <li class="item"><a href="#">Menu #13</a></li>
+                    <a class="" href="#">Menu # 8<span class="menu-item__icon"></span></a>
+                    <ul class="sub-menu">
+                      <li class="menu-item"><a href="#">Menu #9</a></li>
+                      <li class="menu-item"><a href="#">Menu #10</a></li>
+                      <li class="menu-item"><a href="#">Menu #11</a></li>
+                      <li class="menu-item"><a href="#">Menu #12</a></li>
+                      <li class="menu-item"><a href="#">Menu #13</a></li>
                     </ul>
                   </li>
                 </ul>
               </li>
-              <li class="item item-mega">
+              <li class="menu-item menu-item-has-children menu-item-mega">
                 <input type="checkbox" id="toggle-sub-3" class="nav-bar__toggle">
                 <label for="toggle-sub-3" class="theme-menu__togger--subitem"></label>
-                <a class="item-with-child" href="#">Policy</a>
-                <div class="submenu container-mega"></div>
+                <a href="#">Policy<span class="menu-item__icon"></span></a>
+                <div class="sub-menu container-mega"></div>
               </li>
             </ul>
           </section>
-        </nav>
+        </header>
+        <section class="breadcrumbs-wrap">
+          <ol id="breadcrumbs" class="breadcrumbs">
+            <li class="item-home item-breadcrumbs">
+              <a class="bread-link bread-home" href="#" title="Homepage"> <i class="fas fa-home"></i> </a>
+            </li>
+            <li class="item-cat item-breadcrumbs"><a href="#">Bush</a></li>
+            <li class="item-current item-breadcrumbs item-678"><span class="bread-current bread-678" title="CNE dice que tiene listo el dinero para las campañas presidenciales Febrero 2021…">CNE dice que tiene listo el dinero para las campañas presidenciales Febrero 2021…</span></li>
+          </ol>
+        </section>
       </section>
 
       <section class="theme-content container">
         <div class="content">
 
           <header class="entry-header">
-            <h1>WordPress 5.4 Beta 1 Ready for Testing and Feedback</h1>
+            <h1><a href="#">WordPress 5.4 Beta 1 Ready for Testing and Feedback</a></h1>
           </header>
 
           <section class="entry-meta">
@@ -90,6 +101,7 @@
           </figure>
 
           <div class="entry-content">
+            <!--<span class="aa">Texto para medir</span>-->
             <p>wtvero accusam et justo duo dolores et ea rebum. stet clita kasd gubergren, no sea consetetur sadipscing elitr, sed diam nonumy eirmod takimata sanctus est lorem ipsum dolor sit amet. duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan. lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam.</p>
             <p>AT VERO EOS ET ACCUSAM ET JUSTO DUO DOLORES ET EA REBUM STET CLITA KASD GUBERGREN NO SEA TAKIMATA SANCTUS EST LOREM IPSUM DOLOR SIT AMET AT VERO EOS ET ACCUSAM ET JUSTO DUO DOLORES ET EA REBUM STET CLITA KASD GUBERGREN NO SEA TAKIMATA SANCTUS EST LOREM IPSUM DOLOR SIT AMET DUIS AUTEM VEL EUM IRIURE DOLOR IN HENDRERIT IN VULPUTATE VELIT ESSE MOLESTIE CONSEQUAT VEL ILLUM DOLORE EU FEUGIAT NULLA FACILISIS AT VERO EROS ET ACCUMSAN ET IUSTO ODIO DIGNISSIM QUI BLANDIT PRAESENT LUPTATUM ZZRIL DELENIT AUGUE DUIS DOLORE TE FEUGAIT SEA CONSETETUR SADIPSCING ELITR SED DIAM NONUMY EIRMOD TAKIMATA SANCTUS EST LOREM IPSUM DOLOR SIT AMET DUIS AUTEM VEL EUM IRIURE DOLOR IN HENDRERIT IN VULPUTATE VELIT ESSE MOLESTIE CONSEQUAT VEL ILLUM DOLORE EU FEUGIAT NULLA FACILISIS AT VERO EROS ET ACCUMSAN NO SEA TAKIMATA SANCTUS EST.</p>
             <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait. Sea consetetur sadipscing elitr, sed diam nonumy eirmod takimata sanctus est Lorem ipsum dolor sit amet. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan no sea takimata sanctus est.</p>
@@ -103,6 +115,42 @@
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas eos perferendis, molestias deserunt non fuga eum sunt est consectetur exercitationem? Repudiandae vero quasi dicta soluta libero veniam fuga, porro odit.
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Est consequatur ab repudiandae possimus. Harum esse fuga pariatur sunt mollitia excepturi impedit, sapiente eveniet, facere corporis nostrum nobis, velit magni obcaecati?
             </p>
+            <figure class="wp-block-gallery columns-3 is-cropped">
+              <ul class="blocks-gallery-grid">
+                <li class="blocks-gallery-item">
+                  <figure>
+                      <a href="http://localhost/theme/wp-content/uploads/2020/02/unsplash-maurisaenean-male-urnapraesent-12.jpg"><img src="http://localhost/theme/wp-content/uploads/2020/02/unsplash-maurisaenean-male-urnapraesent-12.jpg" alt="" data-id="634" data-full-url="http://localhost/theme/wp-content/uploads/2020/02/unsplash-maurisaenean-male-urnapraesent-12.jpg" data-link="http://localhost/theme/2020/02/27/maurisaenean-male-urnapraesent-agenda-regina/unsplash-maurisaenean-male-urnapraesent-12/" class="wp-image-634"></a>
+                      <figcaption class="blocks-gallery-item__caption">AAAAAA</figcaption>
+                  </figure>
+                </li>
+                <li class="blocks-gallery-item">
+                  <figure>
+                      <a href="http://localhost/theme/wp-content/uploads/2020/02/unsplash-se-it-up-clangore-valuisset-ba-18.jpg"><img src="http://localhost/theme/wp-content/uploads/2020/02/unsplash-se-it-up-clangore-valuisset-ba-18.jpg" alt="" data-id="631" data-full-url="http://localhost/theme/wp-content/uploads/2020/02/unsplash-se-it-up-clangore-valuisset-ba-18.jpg" data-link="http://localhost/theme/2020/02/08/se-it-up-clangore-valuisset-ba-massa-quisaenean-est-eruditiores/unsplash-se-it-up-clangore-valuisset-ba-18/" class="wp-image-631"></a>
+                  </figure>
+                </li>
+                <li class="blocks-gallery-item">
+                  <figure>
+                      <a href="http://localhost/theme/wp-content/uploads/2020/02/picsum-vitae-provectus-elitvivamus-sup-p78.jpg"><img src="http://localhost/theme/wp-content/uploads/2020/02/picsum-vitae-provectus-elitvivamus-sup-p78-1024x609.jpg" alt="" data-id="666" data-full-url="http://localhost/theme/wp-content/uploads/2020/02/picsum-vitae-provectus-elitvivamus-sup-p78.jpg" data-link="http://localhost/theme/2020/02/11/vitae-provectus-elitvivamus-sup-parum-ultrices-fi/picsum-vitae-provectus-elitvivamus-sup-p78/" class="wp-image-666"></a>
+                      <figcaption class="blocks-gallery-item__caption">BB</figcaption>
+                  </figure>
+                </li>
+                <li class="blocks-gallery-item">
+                  <figure>
+                      <a href="http://localhost/theme/wp-content/uploads/2020/02/unsplash-mo-poterant-duo-montes-eget-ter79.jpg"><img src="http://localhost/theme/wp-content/uploads/2020/02/unsplash-mo-poterant-duo-montes-eget-ter79-1024x569.jpg" alt="" data-id="672" data-full-url="http://localhost/theme/wp-content/uploads/2020/02/unsplash-mo-poterant-duo-montes-eget-ter79.jpg" data-link="http://localhost/theme/2020/02/23/mo-poterant-duo-montes-eget-terminos/unsplash-mo-poterant-duo-montes-eget-ter79/" class="wp-image-672"></a>
+                  </figure>
+                </li>
+                <li class="blocks-gallery-item">
+                  <figure>
+                      <a href="http://localhost/theme/wp-content/uploads/2020/03/unsplash-ci-principale-enim-introducta-s68.jpg"><img src="http://localhost/theme/wp-content/uploads/2020/03/unsplash-ci-principale-enim-introducta-s68.jpg" alt="" data-id="669" data-full-url="http://localhost/theme/wp-content/uploads/2020/03/unsplash-ci-principale-enim-introducta-s68.jpg" data-link="http://localhost/theme/2020/03/19/ci-principale-enim-introducta-sollicitudin-amet-potius/unsplash-ci-principale-enim-introducta-s68/" class="wp-image-669"></a>
+                  </figure>
+                </li>
+                <li class="blocks-gallery-item">
+                  <figure>
+                      <a href="http://localhost/theme/wp-content/uploads/2020/02/unsplash-turpis-parturient-praeceps-vehi90.jpg"><img src="http://localhost/theme/wp-content/uploads/2020/02/unsplash-turpis-parturient-praeceps-vehi90.jpg" alt="" data-id="683" data-full-url="http://localhost/theme/wp-content/uploads/2020/02/unsplash-turpis-parturient-praeceps-vehi90.jpg" data-link="http://localhost/theme/2020/02/05/turpis-parturient-praeceps-vehicula-contemplans-mauris-post-low-ies-sup/unsplash-turpis-parturient-praeceps-vehi90/" class="wp-image-683"></a>
+                  </figure>
+                </li>
+              </ul>
+            </figure>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas eos perferendis, molestias deserunt non fuga eum sunt est consectetur exercitationem? Repudiandae vero quasi dicta soluta libero veniam fuga, porro odit.
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Est consequatur ab repudiandae possimus. Harum esse fuga pariatur sunt mollitia excepturi impedit, sapiente eveniet, facere corporis nostrum nobis, velit magni obcaecati?
             </p>
@@ -114,6 +162,84 @@
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas eos perferendis, molestias deserunt non fuga eum sunt est consectetur exercitationem? Repudiandae vero quasi dicta soluta libero veniam fuga, porro odit.
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Est consequatur ab repudiandae possimus. Harum esse fuga pariatur sunt mollitia excepturi impedit, sapiente eveniet, facere corporis nostrum nobis, velit magni obcaecati?
             </p>
+            <table><caption>noscere seria languentibus co</caption>
+              <thead>
+                <tr>
+                  <th>molestie tristique</th>
+                  <th>regni</th>
+                  <th>enimnulla</th>
+                  <th>gallienus acciderat</th>
+                  <th>ed divites</th>
+                  <th>massaphasellus</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr>
+              <td>molestie tristique</td>
+              <td>regni</td>
+              <td>enimnulla</td>
+              <td>gallienus acciderat</td>
+              <td>ed divites</td>
+              <td>massaphasellus</td>
+              </tr>
+              <tr>
+              <td>denique men</td>
+              <td>observantes puniti</td>
+              <td>saevi fa</td>
+              <td>siquid nihil</td>
+              <td>claudebantur</td>
+              <td>cuiusdam ob</td>
+              </tr>
+              <tr>
+              <td>crudelitati cuius</td>
+              <td>in</td>
+              <td>consequatduis clematius</td>
+              <td>vox</td>
+              <td>diaminteger galli</td>
+              <td>exprimebat</td>
+              </tr>
+              <tr>
+              <td>temporis</td>
+              <td>plus</td>
+              <td>aliquyam super</td>
+              <td>facinora versutosque</td>
+              <td>dictumst ple</td>
+              <td>be vulputate</td>
+              </tr>
+              <tr>
+              <td>adfligebant</td>
+              <td>animis</td>
+              <td>propinquitate modum</td>
+              <td>vitae sentiret</td>
+              <td>u</td>
+              <td>leopraesent</td>
+              </tr>
+              <tr>
+              <td>muspellentesque feugiat</td>
+              <td>et</td>
+              <td>nonumy</td>
+              <td>out</td>
+              <td>viam lectus</td>
+              <td>nal</td>
+              </tr>
+              <tr>
+              <td>porttitor auctorem</td>
+              <td>bibendumfusce</td>
+              <td>eget quaerebatur</td>
+              <td>conpita</td>
+              <td>fi primis</td>
+              <td>in</td>
+              </tr>
+              <tr>
+              <td>potenti trudebat</td>
+              <td>oblato</td>
+              <td>fastus</td>
+              <td>urnapraesent</td>
+              <td>ed</td>
+              <td>aliquammauris</td>
+              </tr>
+              </tbody>
+              </table>
             <h3>Hola como estas</h3>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas eos perferendis, molestias deserunt non fuga eum sunt est consectetur exercitationem? Repudiandae vero quasi dicta soluta libero veniam fuga, porro odit.
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Est consequatur ab repudiandae possimus. Harum esse fuga pariatur sunt mollitia excepturi impedit, sapiente eveniet, facere corporis nostrum nobis, velit magni obcaecati?
@@ -128,6 +254,13 @@
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Est consequatur ab repudiandae possimus. Harum esse fuga pariatur sunt mollitia excepturi impedit, sapiente eveniet, facere corporis nostrum nobis, velit magni obcaecati?
             </p>
           </div>
+
+          <p class="post-nav-links">Pages:
+            <span class="post-page-numbers current" aria-current="page">1</span>
+            <a href="#" class="post-page-numbers">2</a>
+            <a href="#" class="post-page-numbers">3</a>
+            <a href="#" class="post-page-numbers">4</a>
+          </p>
 
           <div class="author-box">
             <figure class="author-box__avatar"><img src="assets/images/3.jpg" /></figure>
@@ -157,7 +290,8 @@
 
           <div id="comments" class="theme-comments">
             <h2 class="comment-title">BE THE FIRST TO COMMENT</h2>
-            <ol class="commentlist theme-comment-list">
+
+            <ol class="commentlist theme-comment-list theme-comment-with-paginate">
 
               <li id="comment-1" class="comment even thread-even depth-1 theme-comment-item">
                 <article id="div-comment-1" class="theme-comment-body">
@@ -274,6 +408,15 @@
               </li>
 
             </ol>
+
+            <div class="comments-paginate">
+              <a class="prev page-numbers" href="#">« Previous</a>
+              <a class="page-numbers" href="#">1</a>
+              <a class="page-numbers" href="#">2</a>
+              <a class="page-numbers" href="#">3</a>
+              <span aria-current="page" class="page-numbers current">4</span>
+            </div>
+
             <div id="respond" class="comment-respond">
               <h3 id="reply-title" class="comment-reply-title">Leave a Reply</h3>
               <form class="comment-respond__form" id="commentform" method="post">
@@ -323,25 +466,33 @@
 
       </section>
 
-      <section class="theme-footer container">
+      <footer class="theme-footer container">
         <div class="footer__sidebar footer-3">
           <div class="widget">
             <h3 class="widget__title">Title Widget</h3>
             <div class="widget-content">
-              <ul>				<li>
-                <a href="https://wptavern.com/automatic-theme-and-plugin-updates-slated-for-wordpress-5-5" class="bump-view" data-bump-view="tp">Automatic Theme and Plugin Updates Slated for WordPress 5.5</a>					</li>
-                      <li>
-                <a href="https://wptavern.com/gutenberg-7-6-includes-rotating-tips-list-and-new-full-site-editing-blocks" class="bump-view" data-bump-view="tp">Gutenberg 7.6 Includes Rotating Tips List and New Full-Site Editing Blocks</a>					</li>
-                      <li>
-                <a href="https://wptavern.com/elementor-raises-15-million-plans-to-invest-in-the-team-product-and-community" class="bump-view" data-bump-view="tp" aria-current="page">Elementor Raises $15 Million, Plans to Invest in the Team, Product, and Community</a>					</li>
-                      <li>
-                <a href="https://wptavern.com/on-maga-caps-and-wordcamps" class="bump-view" data-bump-view="tp">On MAGA Caps and WordCamps</a>					</li>
-                      <li>
-                <a href="https://wptavern.com/after-the-acquisition-flywheel-in-the-new-year" class="bump-view" data-bump-view="tp">After the Acquisition: Flywheel in the New Year</a>					</li>
-                      <li>
-                <a href="https://wptavern.com/goodbye-featured-themes-for-now" class="bump-view" data-bump-view="tp">Goodbye Featured Themes, For Now</a>					</li>
-                      <li>
-                <a href="https://wptavern.com/editorskit-tackles-typography-with-first-premium-add-on" class="bump-view" data-bump-view="tp">EditorsKit Tackles Typography With First Premium Add-On</a>					</li>
+              <ul>
+                <li>
+                  <a href="#">Automatic Theme</a>
+                </li>
+                <li>
+                  <a href="#">Gutenberg 7.6 Includes</a>
+                </li>
+                <li>
+                  <a href="#" aria-current="page">Elementor ty</a>
+                </li>
+                <li>
+                  <a href="#">On MAGA Cas</a>
+                </li>
+                <li>
+                  <a href="#">After the Ac Year</a>
+                </li>
+                <li>
+                  <a href="#">Goodbyer Now</a>
+                </li>
+                <li>
+                  <a href="#">Editorsdd-On</a>
+                </li>
               </ul>
             </div>
           </div>
@@ -363,30 +514,36 @@
             Copyright
           </div>
         </div>
-        <div class="footer__bar">
-          <ul class="menu__items list-none m-0 p-0">
-            <li class="menu__item"><a href="https://wptavern.com/" class="">Home</a></li>
-            <li class="menu__item"><a href="https://wptavern.com/archives" class="">Archives</a></li>
-            <li class="menu__item"><a href="https://wptavern.com/contact-me" class="">Write For Us</a></li>
-            <li class="menu__item"><a href="https://wptavern.com/contact-me/ask-the-bartender" class="">Ask the Bartender</a></li>
+      </footer>
+
+      <footer class="theme-footer-bar container">
+        <ul class="menu__items list-none m-0 p-0">
+          <li class="menu__item"><a href="https://wptavern.com/" class="">Home</a></li>
+          <li class="menu__item"><a href="https://wptavern.com/archives" class="">Archives</a></li>
+          <li class="menu__item"><a href="https://wptavern.com/contact-me" class="">Write For Us</a></li>
+          <li class="menu__item"><a href="https://wptavern.com/contact-me/ask-the-bartender" class="">Ask the Bartender</a></li>
         </ul>
-          <p class="app-footer__credit my-4 text-center">Proudly powered by WordPress.</p>
-          <ul class="menu__items list-none m-0 p-0">
-            <li id="menu-item-13447" class="menu__item  inline mx-2">
-                <a href="http://twitter.com/wptavern" class="menu__link inline-flex">
-                    <span class="">Twitter</span></a>
-            </li>
-            <li id="menu-item-13448" class="menu__item  inline mx-2">
-                <a href="http://facebook.com/wptavern" class="menu__link inline-flex">
-                    <span class="">Facebook</span></a>
-            </li>
-            <li id="menu-item-13449" class="menu__item  inline mx-2">
-                <a href="https://www.instagram.com/wptav/" class="menu__link inline-flex">
-                    <span class="">Instagram</span></a>
-            </li>
-          </ul>
-        </div>
-      </section>
+        <p class="app-footer__credit my-4 text-center">Proudly powered by WordPress.</p>
+        <ul class="menu__items list-none m-0 p-0">
+          <li id="menu-item-13447" class="menu__item  inline mx-2">
+              <a href="http://twitter.com/wptavern" class="menu__link inline-flex">
+                  <span class="">Twitter</span></a>
+          </li>
+          <li id="menu-item-13448" class="menu__item  inline mx-2">
+              <a href="http://facebook.com/wptavern" class="menu__link inline-flex">
+                  <span class="">Facebook</span></a>
+          </li>
+          <li id="menu-item-13449" class="menu__item  inline mx-2">
+              <a href="https://www.instagram.com/wptav/" class="menu__link inline-flex">
+                  <span class="">Instagram</span></a>
+          </li>
+        </ul>
+      </footer>
     </div>
+
+    <div class="theme-button-back-to-top"></div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script type='text/javascript' src='/assets/js/js.min.js'></script>
   </body>
 </html>
