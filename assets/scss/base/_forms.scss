@@ -22,9 +22,17 @@ input[type="number"],
 input[type="search"],
 select{
   border: 1px solid var(--wp-form-border-input);
+  width: 100%;
+  @include breakpoint(tablet){
+    width: auto;
+  }
 }
 label {
   display: inline-block;
+  width: 100%;
+  @include breakpoint(tablet){
+    width: auto;
+  }
 }
 
 /* ─── Forms ──────── */

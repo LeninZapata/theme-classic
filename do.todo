@@ -10,9 +10,15 @@ Hacer:
         cabecera, // Components - Comments:colors entonces asi se identifica, otro Components - Comments:Core
         @low hay que analizarlo.
 Corregir:
+    ☐ Tabla respondive
+    ☐ agregar clases nuevas de los comentarios
+    ☐ revisar si tienes que agregar clases al menus
+    ✔ los metas tienen clases para su postura arriba y abajo hay ue agregarlo @done(20-04-06 10:33)
+    ☐ Todo estilo titulo debe tb tener el nombre del archivo ejemplo: home & archive :: spacing, ó. home :: colors
+        con esto se puede localizar por inspector a que pertenece.
     ✔ Mira los z-index con variables @done(20-04-01 15:47)
     ✔ Imagen figure > image no funciona bien, la imagen se va muy abajo se colapsa. @done(20-03-30 12:37)
-    ✔ Tabla de multiple columnas no es responsive, el diseño se rompe @done(20-03-30 12:37)
+    ✔ Tabla de multiple columnas no es res ponsive, el diseño se rompe @done(20-03-30 12:37)
     ✔ Animations debe estar documentado en la tala de CSs @done(20-04-01 15:47)
     ✔ Esteliza el menu, no se ve del todo bien @done(20-03-30 12:37)
     ✔ En DIBUJAR LAYOUTS falta el layouts de otros elementos @done(20-03-01 20:01)
@@ -46,5 +52,6 @@ Corregir:
         ese primer elemento, es un dolor de cabeza eso, es mejor usalo por una clase que solo tenga el priemr bloque
 
 Despues:
+    ☐ Comentarios en lasfunciones y mixed de scss
     ☐ Agregale un changelog cuando ya este en produccion la primera etapa
     ☐ Preload solo por primera vez, luego ya no se lo usa.

@@ -48,7 +48,7 @@ th, th:first-child{
   &__logo{
     min-width: var(--wp-logo-min-width,120px);
     max-width: var(--wp-logo-min-width,400px);
-    height: 50px;
+    min-height: var(--wp-menu-min-height);
     &--separate{
       display: none;
       @include breakpoint(tablet-big){
@@ -66,6 +66,7 @@ th, th:first-child{
 /* Content */
 .theme-content{
   .content{
+    max-width: var(--wp-content-entry-max-width);
     .entry-meta{
       .entry-meta__separate{
         &:before{
@@ -80,8 +81,9 @@ th, th:first-child{
       }
     }
     .entry-featured-image{
+      position: relative;
       max-width: var(--wp-post-featured-image-max-width);
-      img{
+      img:not(.emoji){
         max-width: 100%;
         height: auto;
 
@@ -89,8 +91,12 @@ th, th:first-child{
         box-sizing: border-box;
         filter: var(--wp-image-filter);
       }
+      .post__block--sticky{
+        z-index: var(--theme-zindex-over);
+      }
     }
     .entry-content{
+      word-break: break-all;
       > p > img{
         max-width: 100%;
         height: auto;
@@ -101,16 +107,12 @@ th, th:first-child{
         filter: var(--wp-image-filter);
       }
       @include breakpoint(tablet-big){
-        p,ul,ol,blockquote,h1,h2,h3,h4,h5,h6{
+        p,ul,ol,address,h1,h2,h3,h4,h5,h6{
           max-width: var(--wp-max-width-s);
         }
         ul.blocks-gallery-grid{
           max-width: 100%;
         }
-      }
-      p + figure:not(.wp-block-gallery), p + video, p + audio{
-        position: relative;
-        height: 0;
       }
       figure, video, audio {
         > iframe {
@@ -130,8 +132,8 @@ th, th:first-child{
       twitter-widget{
         @include spacing($attr: margin, $direction: x, $size: auto!important);
       }
-      .fb_iframe_widget{
-        text-align: center;
+      p.wp-caption-text, figure figcaption {
+        max-width: 100%;
       }
     }
   }
@@ -142,8 +144,6 @@ th, th:first-child{
     .content{
       article.post.post__featured{
         position: relative;
-        background-repeat: no-repeat;
-        background-size: cover;
         &::before{
           content: "";
           position: absolute;
@@ -160,11 +160,17 @@ th, th:first-child{
         min-height: 400px;
       }
       article.post .entry-featured-image{
-        img{
+        img:not(.emoji){
           object-fit: cover;
           width: 100%;
           min-height: 230px;
           max-height: 100vh;
+          height: 0;
+        }
+      }
+      .entry-content{
+        p + figure:not(.wp-block-gallery), p + video, p + audio{
+          position: relative;
           height: 0;
         }
       }

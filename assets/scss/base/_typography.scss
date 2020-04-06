@@ -14,6 +14,18 @@ p,li,ul,ol,blockquote,i,em,code,a{
 }
 blockquote{
   font-style: italic;
+  font-family: Georgia, serif;
+  font-size: var(--wp-text-ml);
+  line-height: 1.5;
+  text-align: justify;
+}
+blockquote:before{
+  font-family: Georgia, serif;
+  font-size: var(--wp-text-xxxxxl);
+  font-weight: bold;
+}
+blockquote a{
+  text-decoration: none;
 }
 a, .link {
   text-decoration: underline;
@@ -39,6 +51,10 @@ code{
 }
 td, th {
   text-align: left;
+}
+dt {
+  text-align:right;
+  font-weight:bold;
 }
 
 /* ─── Global Responsive Font ──────── */
@@ -158,9 +174,8 @@ button, input[type=button], input[type=reset], input[type=submit]{
 .icon--xxl { font-size: var(--theme-icon-xxl); }
 
 /* ─── WP Core ──────── */
-figure figcaption,.wp-caption-text {
+figure figcaption,.wp-caption-text, p.wp-caption-text{
   font-size: var(--wp-text-md);
-  //line-height: var(--wp-body-line-height);
   font-family: var(--wp-body-font2);
   text-align: center;
 }
@@ -175,7 +190,7 @@ figure figcaption,.wp-caption-text {
 }
 .gallery{
   .gallery-caption{
-    text-align: center;
+    text-align: left;
   }
 }
 #wp-calendar{
@@ -268,6 +283,11 @@ figure figcaption,.wp-caption-text {
       }
       .fb_iframe_widget{
         text-align: center;
+      }
+      p.wp-caption-text, figure figcaption {
+        line-height: 1;
+        font-size: var(--wp-text-md);
+        font-family: var(--wp-body-font2);
       }
     }
     .no-comments{
@@ -466,7 +486,7 @@ figure figcaption,.wp-caption-text {
 /* Comments */
 .theme-comments{
   a{
-    font-size: 1.6rem;
+    font-size: var(--wp-text-md);
   }
   h1,h2,h3,h4,h5,h6{
     font-weight: 400;
@@ -476,9 +496,11 @@ figure figcaption,.wp-caption-text {
       @include breakpoint(tablet){
       }
       .theme-comment-meta-author{
+        text-decoration: none;
+        font-size: var(--wp-text-md);
         a{
-            font-weight: 700;
-            text-decoration: none;
+          font-weight: 700;
+          text-decoration: none;
         }
       }
     }
@@ -590,7 +612,11 @@ figure figcaption,.wp-caption-text {
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
     font-style: normal;
-    font-size: 2em;
-    line-height: 50px;
+    font-size: 1em;
+    line-height: 30px;
+    @include breakpoint(tablet){
+      font-size: 2em;
+      line-height: 50px;
+    }
   }
 }

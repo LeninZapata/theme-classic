@@ -63,6 +63,14 @@
         align-items: center;
         justify-content: center;
       }
+      .entry_content{
+        dl.gallery-item{
+          display: flex;
+          flex-wrap: wrap;
+          flex-direction: column;
+          align-items: self-start;
+        }
+      }
     }
   }
 }
@@ -76,7 +84,7 @@
   .header-wrap{
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
     &__logo{
       display: flex;
       h1,h2{
@@ -110,6 +118,7 @@
   }
   .content{
     grid-area: content;
+    grid-column: span 2;
   }
   .sidebar{
     grid-area: sidebar;
@@ -117,6 +126,7 @@
   }
   .pagination{
     grid-area: navigation;
+    grid-column: span 2;
   }
   .header-archive{
     grid-area: header-archive
@@ -159,13 +169,11 @@
 .error404{
   .theme-content{
     display:block;
-    .content{
-    }
   }
 }
 
-/* ─── Components ──────── */
-/* Author Box */
+/* ─── Components :: layout ──────── */
+/* Author Box :: layout */
 .theme-content{
   .author-box{
     display: flex;
@@ -174,7 +182,7 @@
     justify-content: space-between;
   }
 }
-/* Comments */
+/* Comments :: layout */
 .theme-comments{
   .theme-comment-data{
     display: flex;
@@ -196,16 +204,12 @@
     }
   }
 }
-/* Menu */
+/* Menu :: layout */
 .header-wrap__menu{
   .theme-menu{
+    min-height: var(--wp-menu-min-height);
     .menu-item,.menu-item-mega{
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      align-content: center;
-      flex-wrap: wrap;
+      display: grid;
       &.menu-item-has-children{
         order: 1;
         &__icon{
@@ -226,11 +230,12 @@
         grid-column: 2 span;
       }
     }
-    .menu-item,.menu-item a{
-      display: block;
+    .menu-item a{
+      display: flex;
+      align-items: center;
+      height: 100%;
       @include breakpoint(tablet-big){
-        width: auto;
-        display: flex;
+        width: 100%;
       }
     }
     &__togger{
@@ -277,7 +282,7 @@
     }
   }
 }
-/* Pagination */
+/* Pagination :: layout */
 .pagination{
   display: flex;
   justify-items: center;
@@ -288,7 +293,7 @@
       display: inline-block;
   }
 }
-/* Breadcrumbs */
+/* Breadcrumbs :: layout */
 .breadcrumbs-wrap{
   display:none;
   @include breakpoint(tablet-big){

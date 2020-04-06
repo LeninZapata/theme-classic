@@ -106,7 +106,7 @@
     }
   }
   .comment-respond{
-    @include breakpoint(tablet){
+    @include breakpoint(tablet-big){
       border: 1px solid var(--theme-color-text-alt2);
     }
     > form{
@@ -155,6 +155,7 @@
     }
     .menu-item, .menu-item > a{
       cursor: pointer;
+      min-height: calc( var(--wp-space-xl) + 5px);
     }
     @include breakpoint(tablet-big){
       box-shadow: none;
@@ -234,7 +235,7 @@
     &__togger {
       cursor: pointer;
       width: 60px;
-      height: 50px;
+      height: var(--wp-menu-min-height);
       /* border-radius: Var(--wp-space-xxxs); */
       @include breakpoint(tablet-big){
         display: none;
@@ -265,11 +266,14 @@
   .sub-menu,[id^="toggle"]{
       display: none;
   }
+  .sub-menu .menu-item{
+    min-height: calc( var(--wp-space-xl) + 5px);
+  }
 
   [id^="toggle"]:checked ~ .theme-menu,
   [id^="toggle"]:checked ~ .sub-menu,
   [id^="toggle"]:checked ~ .container-mega{
-      display: block;
+    display: block;
   }
   [id^="toggle"]:checked ~ .theme-menu{
       left: 0;
@@ -284,7 +288,7 @@
       visibility: hidden;
       opacity: 0;
     }
-    min-height: auto;
+    min-height: calc( var(--wp-space-xl) + 5px);
     .menu-item{
       &:hover > .menu-item-has-children + .sub-menu,
       &:hover > .menu-item-has-children + .theme-menu{
@@ -311,6 +315,8 @@
         height: calc( var(--wp-space-md) / 2);
         &:before{
           content: '+';
+          position: relative;
+          top: -3px;
         }
       }
       &:hover > a .menu-item__icon{
@@ -346,10 +352,8 @@
       &:after{
         content: '·';
       }
-      &:last-child{
-        &:after{
-          content: '';
-        }
+      &:last-child:after{
+        content: '';
       }
     }
   }
@@ -358,16 +362,22 @@
 /* = 10.9 Button top up */
 .theme-button-back-to-top{
   display: inline-block;
-  width: var(--wp-space-xl);
-  height: var(--wp-space-xl);
   border-radius: var(--wp-space-xxxs);
   position: fixed;
-  bottom: var(--wp-space-lg);
-  right: var(--wp-space-lg);
   opacity: .5s, visibility .75s;
   opacity: 0;
   visibility: hidden;
   z-index: var(--theme-zindex-fixed-element);
+  width: var(--wp-space-lg);
+  height: var(--wp-space-lg);
+  bottom: var(--wp-space-md);
+  right: var(--wp-space-md);
+  @include breakpoint(tablet){
+    width: var(--wp-space-xl);
+    height: var(--wp-space-xl);
+    bottom: var(--wp-space-lg);
+    right: var(--wp-space-lg);
+  }
   &:after {
     content: "\f077";
   }

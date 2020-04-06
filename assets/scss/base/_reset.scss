@@ -44,8 +44,22 @@ blockquote{
   display   : block;
   box-sizing: border-box;
 }
+blockquote, q, p, a, span,h1,h2,h3,h4,h5,h6{
+  word-break: break-all;
+}
 blockquote, q {
   quotes: none;
+}
+q{
+  opacity: .9;
+}
+sub,sup{
+  position: relative;
+  top: 0.5em;
+  font-size: 80%;
+}
+sup{
+  top: -0.5em;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
@@ -79,4 +93,50 @@ hr {
   height: 0;
   border: none;
   border-top: 1px dashed #b3b3b3;
+}
+blockquote {
+  display:block;
+  position: relative;
+  border-left: 15px solid #A1B2BA;
+  border-right: 1px dotted #EBF2F8;
+  box-shadow: -1px 2px 8px #efefef;
+}
+blockquote:before{
+  content: '\201C';
+  position: absolute;
+  left: 10px;
+  top:5px;
+}
+blockquote:after{
+  content: '';
+}
+blockquote a{
+  cursor: pointer;
+}
+dl:after {content:"";display:table;clear:both;}
+dl {
+  width:100%;
+}
+dt, dd {
+  display:inline-block;
+  width:30%;
+}
+dt {
+  clear:left;
+  float:left;
+}
+dd {
+  width:70%;
+  clear:right;
+}
+dd + dd {
+  float:right;
+  clear:both;
+}
+dd + dt {
+  clear:both;
+}
+dt + dt {
+  width: 100%;
+  float: none;
 }

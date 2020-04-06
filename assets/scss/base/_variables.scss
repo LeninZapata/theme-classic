@@ -225,6 +225,7 @@ html.wp{
   --wp-width-entry-max: var(--theme-max-width-s);
   --wp-max-width-container:var(--theme-max-width-md);
   --wp-max-width-theme:var(--theme-max-width-ms);
+  --wp-menu-min-height: var(--wp-space-xl);
 
   // ─── Colors ────────
   --wp-primary-color: var(--theme-color-primary);
@@ -259,7 +260,7 @@ html.wp{
   --wp-body-font-size:  calc( var(--wp-text-base) + 2px ); // 18px
   --wp-menu-livel1-font-family: var(--wp-font-secondary);
   --wp-menu-livel1-font-size: var(--wp-text-md);
-  --wp-menu-resposive-livel1-font-size: var(--wp-text-xl);
+  --wp-menu-resposive-livel1-font-size: var(--wp-text-md);
   --wp-pagination-font-size: calc( var(--wp-text-md) - 1px);
   --wp-tags-font-size: calc(var(--wp-text-md) + 2px);
   --wp-tags-line-height: calc( var(--wp-space-lg) );
@@ -276,13 +277,16 @@ html.wp{
   --wp-post-font-meta: calc( var(--wp-text-sm) + 1px);
   --wp-form-button-text-size: var(--wp-text-md);
 
-  /* ─── Image  ──────── */
-  --wp-post-featured-image-max-width: var(--theme-max-width-md);
+  // ─── Image  ────────
+  --wp-post-featured-image-max-width: var(--wp-max-width-md);
   --wp-post-featured-box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);
   --wp-image-filter: var(--theme-image-default-filter);
 
   --wp-post-font-size: var(--wp-body-font-size);
   --wp-post-image-box-shadow: var(--wp-post-featured-box-shadow);
+
+  // ─── Content ────────
+  --wp-content-entry-max-width: var(--wp-max-width-md);
 
   // ─── Spaces ────────
   --wp-form-input-padding-all: var(--theme-space-x);
